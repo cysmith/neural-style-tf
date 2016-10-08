@@ -42,7 +42,7 @@ def parse_args():
     help='Directory path to the style images. (default: %(default)s)')
 
   parser.add_argument('--content_img_dir', type=str,
-    default='./content',
+    default='./image_input',
     help='Directory path to the content image. (default: %(default)s)')
   
   parser.add_argument('--init_img_type', type=str, 
@@ -124,7 +124,7 @@ def parse_args():
     choices=['/gpu:0', '/cpu:0'],
     help='GPU or CPU mode.  GPU mode requires NVIDIA CUDA. (default|recommended: %(default)s)')
   
-  parser.add_argument('--image_output_dir', type=str, 
+  parser.add_argument('--img_output_dir', type=str, 
     default='./image_output',
     help='Relative or absolute directory path to output image and data.')
   
@@ -196,7 +196,7 @@ def parse_args():
   if args.video:
     maybe_make_directory(args.video_output_dir)
   else:
-    maybe_make_directory(args.image_output_dir)
+    maybe_make_directory(args.img_output_dir)
 
   return args
 
@@ -591,12 +591,13 @@ def minimize_with_adam(sess, net, optimizer, init_img):
     iterations += 1
 
 def get_optimizer(loss):
+  v = 1 if args.verbose else 0
   if args.optimizer == 'lbfgs':
     optimizer = tf.contrib.opt.ScipyOptimizerInterface(
       loss, 
       method='L-BFGS-B',
       options={'maxiter': args.max_iterations
-                  'disp': args.verbose})
+                  'disp': v})
   elif args.optimizer == 'adam':
     optimizer = tf.train.AdamOptimizer(args.learning_rate)
   return optimizer
@@ -607,7 +608,7 @@ def write_video_output(frame, output_img):
   write_image(output_frame_path, output_img)
 
 def write_image_output(output_img, content_img, style_imgs, init_img):
-  out_dir = os.path.join(args.image_output_dir, args.img_name)
+  out_dir = os.path.join(args.img_output_dir, args.img_name)
   maybe_make_directory(out_dir)
   img_path = os.path.join(out_dir, "output.png")
   content_path = os.path.join(out_dir, "content.png")
