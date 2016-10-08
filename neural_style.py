@@ -528,7 +528,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     net = build_vgg19(content_img)
 
     # style loss
-    if args.has_style_mask:
+    if args.style_mask:
       L_style = sum_masked_style_losses(sess, net, style_imgs)
     else:
       L_style = sum_style_losses(sess, net, style_imgs)
