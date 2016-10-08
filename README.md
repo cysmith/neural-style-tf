@@ -156,7 +156,7 @@ Demo videos coming soon...
 ### Basic Usage
 
 #### Single Image
-1. Copy 1 content image (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default content directory `./content`
+1. Copy 1 content image (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default single-image content directory `./image_input`
 2. Copy 1 or more style images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default style directory `./styles`
 3. Run the command:
 ```
@@ -164,13 +164,13 @@ bash stylize_image.sh <path_to_content_image> <path_to_style_image>
 ```
 *Example*:
 ```
-bash stylize_image.sh ./content/lion.jpg ./styles/starry-night.jpg
+bash stylize_image.sh ./image_input/lion.jpg ./styles/starry-night.jpg
 ```
 
 *Note*: Paths to images should not contain the `~` character to represent your home directory; you should instead use a relative path or the absolute path.
 
 #### Video Frames
-1. Copy 1 content video (`.mp4`, `.mov`) to the default content directory `./video_input`
+1. Copy 1 content video (`.mp4`, `.mov`) to the default video content directory `./video_input`
 2. Copy 1 or more style images to the default style directory `./styles`
 3. Run the command:
 ```
@@ -182,26 +182,44 @@ bash stylize_video.sh ./video_input/video.mp4 ./styles/starry-night.jpg
 ```
 
 ### Advanced Usage
-
-Run the command with specific arguments:
+#### Single Image or Video Frames
+1. Copy content images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default single-image content directory `./image_input` or copy videos (`.mp4`, `.mov`) to the default video content directory `./video_input`  
+2. Copy 1 or more style images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default style directory `./styles`   
+3. Run the command with specific arguments:
 ```
 python neural_style.py <arguments>
 ```
-*Example*:
+*Example (Single Image)*:
 ```
-python neural_style.py --content_img lion.jpg --style_imgs starry-night.jpg --device /cpu:0
+python neural_style.py --content_img golden_gate.jpg \
+                       --style_imgs starry-night.jpg \
+                       --max_size 1000 \
+                       --max_iterations 100 \
+                       --original_colors \
+                       --device /cpu:0;
 ```
 
 To use multiple style images, pass a *space-separated* list of the image names and image weights like this:
 
 `--style_imgs starry_night.jpg the_scream.jpg --style_imgs_weights 0.5 0.5`
 
+*Example (Video)*:
+```
+python neural_style.py --video \
+                       --style_imgs starry-night.jpg \
+                       --start_frame 1 \
+                       --end_frame 50 \
+                       --max_size 1000 \
+                       --max_iterations 2000;
+```
+*Note*:  When using `--init_frame_type prev_warp` you must have previously computed the backward and forward optical flow between the frames.  See `./video_input/make-opt-flow.sh` and `./video_input/run-deepflow.sh`
+
 #### Arguments
+* `--content_img`: Filename of the content image. *Example*: `lion.jpg`
+* `--content_img_dir`: Relative or absolute directory path to the content image. *Default*: `./image_input`
 * `--style_imgs`: Filenames of the style images. To use multiple style images, pass a *space-separated* list.  *Example*: `--style_imgs starry-night.jpg`
 * `--style_imgs_weights`: The blending weights for each style image.  *Default*: `1.0` (assumes only 1 style image)
-* `--content_img`: Filename of the content image. *Example*: `lion.jpg`
 * `--style_imgs_dir`: Relative or absolute directory path to the style images. *Default*: `./styles`
-* `--content_img_dir`: Relative or absolute directory path to the content image. *Default*: `./content`
 * `--init_img_type`: Image used to initialize the network. *Choices*: `content`, `random`, `style`. *Default*: `content`
 * `--max_size`: Maximum width or height of the input images. *Default*: `512`
 * `--content_weight`: Weight for the content loss function. *Default*: `5e0`
@@ -213,23 +231,25 @@ To use multiple style images, pass a *space-separated* list of the image names a
 * `--content_layer_weights`: Space-separated weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: Space-separated weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--style_scale`: Scale of the style image. Not currently implemented.
-* `--original_colors`: Boolean *flag* indicating if the style is transferred but not the colors. 
+* `--original_colors`: Boolean *flag* indicating if the style is transferred but not the colors.
+* `--style_mask`: Boolean *flag* indicating if style is transferred to masked regions.
+* `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
 * `--noise_ratio`: Interpolation value between the content image and noise image if network is initialized with `random`. *Default*: `1.0`
 * `--seed`: Seed for the random number generator. *Default*: `0`
 * `--model_weights`: Weights of the VGG-19 network.  Download [here](http://www.vlfeat.org/matconvnet/pretrained/). *Default*:`imagenet-vgg-verydeep-19.mat`
 * `--pooling_type`: Type of pooling in convolutional neural network. *Choices*: `avg`, `max`. *Default*: `avg`
 * `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`.  
 * `--image_output_dir`: Directory to write output to.  *Default*: `./image_output`
+* `--img_name`: Filename of the output image.
+* `--verbose`: Boolean flag indicating if statements should be printed to the console.
 
 #### Optimization Arguments
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1e3`
-* `--print_iterations`: Number of iterations to print. *Default*: `50`
-* `--loss_threshold`: . *Default*: `1e-2`
 
 #### Video Frame Arguments
-* `--video`: Boolean *flag* indicating if the user is creating a video.  *Default*: `False`
+* `--video`: Boolean *flag* indicating if the user is creating a video.
 * `--start_frame`: First frame number. *Default*: `1`
 * `--end_frame`: Last frame number. *Default*: `1` 
 * `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `random`
