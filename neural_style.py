@@ -19,9 +19,12 @@ def parse_args():
   parser = argparse.ArgumentParser(description=desc)
 
   # options for single image
+  parser.add_argument('--verbose', action='store_true',
+    help="Boolean flag indicating if statements should be printed to the console.")
+
   parser.add_argument('--img_name', type=str, 
     default="result",
-    help="Basename of output file.")
+    help="Filename of the output image.")
 
   parser.add_argument('--style_imgs', nargs='+', type=str,
     help='Filenames of the style images (example: starry-night.jpg)', 
@@ -35,11 +38,11 @@ def parse_args():
     help='Filename of the content image (example: lion.jpg)')
 
   parser.add_argument('--style_imgs_dir', type=str,
-    default='./input/styles',
+    default='./styles',
     help='Directory path to the style images. (default: %(default)s)')
 
   parser.add_argument('--content_img_dir', type=str,
-    default='./input/content',
+    default='./content',
     help='Directory path to the content image. (default: %(default)s)')
   
   parser.add_argument('--init_img_type', type=str, 
@@ -90,19 +93,19 @@ def parse_args():
   
   parser.add_argument('--style_scale', type=float, default=1.0)
   
-  parser.add_argument('--is_original_colors', type=bool, 
-    default=False,
-    help='Transfer the style but not the colors. (default: %(default)s)')
+  parser.add_argument('--original_colors', action='store_true',
+    help='Transfer the style but not the colors.')
 
-  parser.add_argument('--has_style_mask', type=bool,
-    default=False,
+  parser.add_argument('--style_mask', action='store_true',
     help='Transfer the style to masked regions.')
 
   parser.add_argument('--style_mask_imgs', nargs='+', type=str, 
     default=None,
-    help='Filenames of the style mask images (example: face_mask.png)')
+    help='Filenames of the style mask images (example: face_mask.png) (default: %(default)s)')
   
-  parser.add_argument('--noise_ratio', type=float, default=1.0)
+  parser.add_argument('--noise_ratio', type=float, 
+    default=1.0, 
+    help="Interpolation value between the content image and noise image if the network is initialized with 'random'.")
 
   parser.add_argument('--seed', type=int, 
     default=0,
@@ -138,13 +141,10 @@ def parse_args():
   parser.add_argument('--max_iterations', type=int, 
     default=1e3,
     help='Max number of iterations for the Adam or L-BFGS optimizer. (default: %(default)s)')
-
-  parser.add_argument('--verbose', action='store_true',
-    help="Boolean flag indicating if print statements should be included during execution.")
   
   # options for video frames
-  parser.add_argument('--is_video', action='store_true', 
-    help='Boolean flag indicating if the user is generating a video. (default=%(default)s)')
+  parser.add_argument('--video', action='store_true', 
+    help='Boolean flag indicating if the user is generating a video.')
 
   parser.add_argument('--start_frame', type=int, default=1,
     help='First frame number.')
@@ -193,7 +193,7 @@ def parse_args():
   args = parser.parse_args()
 
   # create directories for output
-  if args.is_video:
+  if args.video:
     maybe_make_directory(args.video_output_dir)
   else:
     maybe_make_directory(args.image_output_dir)
@@ -549,7 +549,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     L_total += beta  * L_style
     L_total += theta * L_tv
 
-    if args.is_video and frame > 1:
+    if args.video and frame > 1:
       gamma      = args.temporal_weight
       L_temporal = sum_shortterm_temporal_losses(sess, frame, init_img)
       L_total   += gamma * L_temporal
@@ -567,7 +567,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     if args.is_original_colors:
       output_img = convert_to_original_colors(np.copy(content_img), np.copy(output_img))
 
-    if args.is_video:
+    if args.video:
       write_video_output(frame, output_img)
     else:
       write_image_output(output_img, content_img, style_imgs, init_img)
@@ -595,9 +595,10 @@ def get_optimizer(loss):
     optimizer = tf.contrib.opt.ScipyOptimizerInterface(
       loss, 
       method='L-BFGS-B',
-      options={'maxiter': args.max_iterations})
+      options={'maxiter': args.max_iterations
+                  'disp': args.verbose})
   elif args.optimizer == 'adam':
-    optimizer = tf.train.AdamOptimizer(args.learning_rate, epsilon=1.0)
+    optimizer = tf.train.AdamOptimizer(args.learning_rate)
   return optimizer
 
 def write_video_output(frame, output_img):
@@ -802,7 +803,7 @@ def render_video():
 def main():
   global args
   args = parse_args()
-  if args.is_video: render_video()
+  if args.video: render_video()
   else: render_single_image()
 
 if __name__ == '__main__':
