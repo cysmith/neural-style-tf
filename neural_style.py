@@ -591,13 +591,12 @@ def minimize_with_adam(sess, net, optimizer, init_img):
     iterations += 1
 
 def get_optimizer(loss):
-  v = 1 if args.verbose else 0
   if args.optimizer == 'lbfgs':
     optimizer = tf.contrib.opt.ScipyOptimizerInterface(
       loss, 
       method='L-BFGS-B',
-      options={'maxiter': args.max_iterations
-                  'disp': v})
+      options={'maxiter': args.max_iterations,
+                  'disp': args.verbose})
   elif args.optimizer == 'adam':
     optimizer = tf.train.AdamOptimizer(args.learning_rate)
   return optimizer
