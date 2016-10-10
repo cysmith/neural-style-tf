@@ -1,4 +1,3 @@
-import tensorflow.python
 import tensorflow as tf
 import numpy as np 
 import scipy.io  
@@ -647,7 +646,7 @@ def write_image_output(output_img, content_img, style_imgs, init_img):
     path = os.path.join(out_dir, str(index)+'_style.png')
     write_image(path, style_img)
     index += 1
-
+  
   # save the configuration settings
   out_file = os.path.join(out_dir, 'meta_data.txt')
   f = open(out_file, 'w')
