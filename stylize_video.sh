@@ -45,6 +45,9 @@ style_image="$2"
 style_dir=$(dirname "$style_image")
 style_filename=$(basename "$style_image")
 
+if [ ! -d "./video_input" ]; then
+  mkdir ./video_input
+fi
 temp_dir="./video_input/${content_filename}"
 
 # Create output folder
@@ -81,4 +84,6 @@ echo "Converting image sequence to video.  This should be quick..."
 $FFMPEG -v quiet -i ./video_output/frame_%04d.ppm ./video_output/${content_filename}-stylized.$extension
 
 # Clean up garbage
-rm -rf "${temp_dir}"
+if [ -d "${temp_dir}" ]; then
+  rm -rf "${temp_dir}"
+fi
