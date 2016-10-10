@@ -46,7 +46,7 @@ style_dir=$(dirname "$style_image")
 style_filename=$(basename "$style_image")
 
 if [ ! -d "./video_input" ]; then
-  mkdir ./video_input
+  mkdir -p ./video_input
 fi
 temp_dir="./video_input/${content_filename}"
 
@@ -59,9 +59,9 @@ eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=wi
 width="${streams_stream_0_width}"
 height="${streams_stream_0_height}"
 if [ "$width" -gt "$height" ]; then
-	max_size="$width"
+  max_size="$width"
 else
-	max_size="$height"
+  max_size="$height"
 fi
 num_frames=$(find "$temp_dir" -iname "*.ppm" | wc -l)
 
