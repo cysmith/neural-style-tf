@@ -332,6 +332,7 @@ Artistic images were created by the popular historical artists:
 * [Édouard Manet](http://www.manet.org/)
 * [Pablo Picasso](https://www.wikiart.org/en/pablo-picasso)
 * [Joseph Mallord William Turner](https://en.wikipedia.org/wiki/J._M._W._Turner)
+* [Frida Kahlo](https://en.wikipedia.org/wiki/Frida_Kahlo)
 
 Bash shell scripts for testing were created by my brother [Sheldon Smith](http://www.imdb.com/name/nm4328496/).
 
