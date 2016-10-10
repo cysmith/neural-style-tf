@@ -537,7 +537,7 @@ def read_weights_file(path):
   return weights
 
 def norm(weights):
-	return [float(i)/sum(weights) for i in weights]
+  return [float(i)/sum(weights) for i in weights]
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
