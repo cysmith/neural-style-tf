@@ -10,34 +10,35 @@ by Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman
 
 Additionally, techniques are presented for semantic segmentation and multiple style transfer.
 
-The first paper presents an algorithm for combining the content of one image with the style of another image using convolutional neural networks. Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
+The Neural Style algorithm combines the content of one image with the style of another image using convolutional neural networks. Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
 
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/lions/42_output.png" width="512"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/content_style.png" width="290"/>
+<img src="examples/lions/42_output.png" width="512"/>
+<img src="examples/lions/content_style.png" width="290"/>
 </p>
 
 Transfering the style of various artworks to the same content image produces qualitatively convincing results:
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/lions/32_output.png" width="192">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/matisse_crop.jpg" width="192"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/lions/33_output.png" width="192"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/water_lilies_crop.jpg" width="192"/>
+<img src="examples/lions/32_output.png" width="192">
+<img src="examples/lions/styles/matisse_crop.jpg" width="192"/>
+<img src="examples/lions/33_output.png" width="192"/>
+<img src="examples/lions/styles/water_lilies_crop.jpg" width="192"/>
 
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/lions/kandinsky_output.png" width="192"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/kandinsky_crop.jpg" width="192"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/lions/basquiat_output.png" width="192"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/basquiat_crop.jpg" width="192"/>
+<img src="examples/lions/kandinsky_output.png" width="192"/>
+<img src="examples/lions/styles/kandinsky_crop.jpg" width="192"/>
+<img src="examples/lions/basquiat_output.png" width="192"/>
+<img src="examples/lions/styles/basquiat_crop.jpg" width="192"/>
 </p>
 
 Here we reproduce Figure 2 from the first paper, which renders a photograph of the Tubingen in Germany in the style of 5 different iconic paintings [The Shipwreck of the Minotaur](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck_of_the_minotaur), [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp):
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/tubingen.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/tubingen_shipwreck.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/tubingen_starry_night.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/tubingen_picasso.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/1_output.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/gatys_figure/tubingen_kandinsky.png" height="192px">
+<img src="examples/gatys_figure/tubingen.png" height="192px">
+<img src="examples/gatys_figure/tubingen_shipwreck.png" height="192px">
+<img src="examples/gatys_figure/tubingen_starry_night.png" height="192px">
+
+<img src="examples/gatys_figure/tubingen_picasso.png" height="192px">
+<img src="examples/gatys_figure/tubingen_scream.png" height="192px">
+<img src="examples/gatys_figure/tubingen_kandinsky.png" height="192px">
 </p>
 
 ### Content / Style Tradeoff
@@ -46,11 +47,11 @@ The algorithm allows the user to trade-off the relative weight of the style and 
 
 Here we render with an increasing style weight applied to [Red Canna](http://www.georgiaokeeffe.net/red-canna.jsp):
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_and_content_tradeoff/okeffe.jpg" height="160px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_and_content_tradeoff/okeffe_10.png" width="160px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_and_content_tradeoff/okeffe_100.png" width="160px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_and_content_tradeoff/okeffe_10000.png" width="160px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_and_content_tradeoff/output_1000000.png" width="160px">
+<img src="examples/style_content_tradeoff/okeffe.jpg" height="160px">
+<img src="examples/style_content_tradeoff/okeffe_10.png" width="160px">
+<img src="examples/style_content_tradeoff/okeffe_100.png" width="160px">
+<img src="examples/style_content_tradeoff/okeffe_10000.png" width="160px">
+<img src="examples/style_content_tradeoff/output_1000000.png" width="160px">
 </p>
 
 ### Multiple Style Images
@@ -60,20 +61,21 @@ More than one style image can be used to blend multiple artistic styles.
 *Bottom row (left to right)*: [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), [David Bowie](http://www.francoise-nielly.com/index.php/galerie/index/56) + [Skull](https://www.wikiart.org/en/jean-michel-basquiat/head) 
 
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/tubingen_starry_scream.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/tubingen_scream_kandinsky.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/tubingen_starry_seated.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/tubingen_seated_kandinsky.png.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/output_tubingen_afremov_grey.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/multiple_styles/output_basquiat_nielly.png" height="192px">
+<img src="examples/multiple_styles/tubingen_starry_scream.png" height="192px">
+<img src="examples/multiple_styles/tubingen_scream_kandinsky.png" height="192px">
+<img src="examples/multiple_styles/tubingen_starry_seated.png" height="192px">  
+
+<img src="examples/multiple_styles/tubingen_seated_kandinsky.png.png" height="192px">
+<img src="examples/multiple_styles/tubingen_afremov_grey.png" height="192px">
+<img src="examples/multiple_styles/tubingen_basquiat_nielly.png" height="192px">
 </p>
 
 ### Style Interpolation
 When using multiple style images, the degree to which they are blended can be controlled.
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_interpolation/golden_gate_scream_7_starry_3.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_interpolation/golden_gate_scream_5_starry_5.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/style_interpolation/golden_gate_scream_3_starry_7.png" height="192px">
+<img src="examples/style_interpolation/taj_mahal_scream_1_starry_9.png" height="192px">
+<img src="examples/style_interpolation/taj_mahal_scream_5_starry_5.png" height="192px">
+<img src="examples/style_interpolation/taj_mahal_scream_9_starry_1.png" height="192px">
 </p>
 
 ### Transfer style but not color
@@ -81,62 +83,70 @@ By including the flag `--original_colors` the output image will retain the color
 
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/original_colors/new_york.png" height="165px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/original_colors/stylized.png" height="165px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/original_colors/stylized_original_colors.png" height="165px">
+<img src="examples/original_colors/new_york.png" height="165px">
+<img src="examples/original_colors/stylized.png" height="165px">
+<img src="examples/original_colors/stylized_original_colors.png" height="165px">
 </p>
 
 ### Textures
 The algorithm is not constrained to artistic painting styles.  It can also be applied to photographic textures to create [pareidolic](https://en.wikipedia.org/wiki/Pareidolia) images.
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/pareidolic/flowers_output.png" width="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/flowers_crop.jpg" width="192px"/>
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/pareidolic/oil_output.png" width="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/oil_crop.jpg" width="192px">
+<img src="examples/pareidolic/flowers_output.png" width="192px">
+<img src="examples/pareidolic/styles/flowers_crop.jpg" width="192px"/>
+<img src="examples/pareidolic/oil_output.png" width="192px">
+<img src="examples/pareidolic/styles/oil_crop.jpg" width="192px">
 
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/pareidolic/dark_matter_output.png" width="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/dark_matter_bw.png" width="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/pareidolic/ben_giles_output.png" width="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/my_styles/ben_giles.png" width="192px">
+<img src="examples/pareidolic/dark_matter_output.png" width="192px">
+<img src="examples/pareidolic/styles/dark_matter_bw.png" width="192px">
+<img src="examples/pareidolic/ben_giles_output.png" width="192px">
+<img src="examples/pareidolic/styles/ben_giles.png" width="192px">
 </p>
 
 ### Segmentation
 Style can be transferred to semantic segmentations in the content image.
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00110.jpg" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00110_mask.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00110_output.png" height="192px">  
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00017.jpg" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00017_mask.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/output_nielly.png" height="192px">  
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00768.jpg" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00768_mask.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/00768_output.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02630.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02630_mask.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02630_output.png" height="192px">
+<img src="examples/segmentation/00110.jpg" height="192px">
+<img src="examples/segmentation/00110_mask.png" height="192px">
+<img src="examples/segmentation/00110_output.png" height="192px">  
+<img src="examples/segmentation/00017.jpg" height="192px">
+<img src="examples/segmentation/00017_mask.png" height="192px">
+<img src="examples/segmentation/00017_output.png" height="192px">
+
+<img src="examples/segmentation/00768.jpg" height="192px">
+<img src="examples/segmentation/00768_mask.png" height="192px">
+<img src="examples/segmentation/00768_output.png" height="192px">
+<img src="examples/segmentation/02630.png" height="192px">
+<img src="examples/segmentation/02630_mask.png" height="192px">
+<img src="examples/segmentation/02630_output.png" height="192px">
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
 
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 <p align="center">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02390.jpg" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/basquiat.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/frida.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02390_mask.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02390_mask_inv.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02390_output.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02270.jpg" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/okeffe_crop.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/okeffe_iris.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02270_mask_face.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02270_mask_face_inv.png" height="192px">
-<img src="https://dl.dropboxusercontent.com/u/63267778/examples/segmentation/02270_output.png" height="192px">
+<img src="examples/segmentation/02390.jpg" height="192px">
+<img src="examples/segmentation/basquiat.png" height="192px">
+<img src="examples/segmentation/frida.png" height="192px">
+<img src="examples/segmentation/02390_mask.png" height="192px">
+<img src="examples/segmentation/02390_mask_inv.png" height="192px">
+<img src="examples/segmentation/02390_output.png" height="192px">
+
+<img src="examples/segmentation/02270.jpg" height="192px">
+<img src="examples/segmentation/okeffe_red_canna.png" height="192px">
+<img src="examples/segmentation/okeffe_iris.png" height="192px">
+<img src="examples/segmentation/02270_mask_face.png" height="192px">
+<img src="examples/segmentation/02270_mask_face_inv.png" height="192px">
+<img src="examples/segmentation/02270_output.png" height="192px">
 </p>
 
 ### Video
-Demo videos coming soon...
+Animations can be rendered by applying the algorithm to each source frame.  For the best results, the network is initialized with the previously stylized frame warped to the current frame according to the optical flow between the pair of frames.  Loss functions for temporal consistency are used to penalize motion boundaries.
+
+<p align="center">
+<img src="examples/video/input.gif">
+
+<img src="examples/video/output.gif">
+</p> 
 
 ## Setup
 #### Dependencies:
@@ -156,8 +166,8 @@ Demo videos coming soon...
 ### Basic Usage
 
 #### Single Image
-1. Copy 1 content image (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default single-image content directory `./image_input`
-2. Copy 1 or more style images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default style directory `./styles`
+1. Copy 1 content image to the default image content directory `./image_input`
+2. Copy 1 or more style images to the default style directory `./styles`
 3. Run the command:
 ```
 bash stylize_image.sh <path_to_content_image> <path_to_style_image>
@@ -166,11 +176,12 @@ bash stylize_image.sh <path_to_content_image> <path_to_style_image>
 ```
 bash stylize_image.sh ./image_input/lion.jpg ./styles/starry-night.jpg
 ```
+*Note*: Supported image formats include: `.png`, `.jpg`, `.ppm`, `.pgm`
 
 *Note*: Paths to images should not contain the `~` character to represent your home directory; you should instead use a relative path or the absolute path.
 
 #### Video Frames
-1. Copy 1 content video (`.mp4`, `.mov`) to the default video content directory `./video_input`
+1. Copy 1 content video to the default video content directory `./video_input`
 2. Copy 1 or more style images to the default style directory `./styles`
 3. Run the command:
 ```
@@ -181,10 +192,12 @@ bash stylize_video.sh <path_to_video> <path_to_style_image>
 bash stylize_video.sh ./video_input/video.mp4 ./styles/starry-night.jpg
 ```
 
+*Note*: Supported video formats include: `.mp4`, `.mov`, `.mkv`
+
 ### Advanced Usage
 #### Single Image or Video Frames
-1. Copy content images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default single-image content directory `./image_input` or copy videos (`.mp4`, `.mov`) to the default video content directory `./video_input`  
-2. Copy 1 or more style images (`.png`, `.jpg`, `.ppm`, `.pgm`) to the default style directory `./styles`   
+1. Copy content images to the default image content directory `./image_input` or copy video frames to the default video content directory `./video_input`  
+2. Copy 1 or more style images to the default style directory `./styles`  
 3. Run the command with specific arguments:
 ```
 python neural_style.py <arguments>
@@ -196,21 +209,27 @@ python neural_style.py --content_img golden_gate.jpg \
                        --max_size 1000 \
                        --max_iterations 100 \
                        --original_colors \
-                       --device /cpu:0;
+                       --device /cpu:0 \
+                       --verbose;
 ```
 
 To use multiple style images, pass a *space-separated* list of the image names and image weights like this:
 
 `--style_imgs starry_night.jpg the_scream.jpg --style_imgs_weights 0.5 0.5`
 
-*Example (Video)*:
+*Example (Video Frames)*:
 ```
 python neural_style.py --video \
+                       --video_input_dir ./video_input/my_video_frames \
                        --style_imgs starry-night.jpg \
+                       --content_weight 5 \
+                       --style_weight 1000 \
+                       --temporal_weight 1000 \
                        --start_frame 1 \
                        --end_frame 50 \
-                       --max_size 1000 \
-                       --max_iterations 2000;
+                       --max_size 1024 \
+                       --first_frame_iterations 3000 \
+                       --verbose;
 ```
 *Note*:  When using `--init_frame_type prev_warp` you must have previously computed the backward and forward optical flow between the frames.  See `./video_input/make-opt-flow.sh` and `./video_input/run-deepflow.sh`
 
@@ -231,14 +250,14 @@ python neural_style.py --video \
 * `--content_layer_weights`: Space-separated weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: Space-separated weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--style_scale`: Scale of the style image. Not currently implemented.
-* `--original_colors`: Boolean *flag* indicating if the style is transferred but not the colors.
-* `--style_mask`: Boolean *flag* indicating if style is transferred to masked regions.
+* `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
+* `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
 * `--noise_ratio`: Interpolation value between the content image and noise image if network is initialized with `random`. *Default*: `1.0`
 * `--seed`: Seed for the random number generator. *Default*: `0`
-* `--model_weights`: Weights of the VGG-19 network.  Download [here](http://www.vlfeat.org/matconvnet/pretrained/). *Default*:`imagenet-vgg-verydeep-19.mat`
+* `--model_weights`: Weights and biases of the VGG-19 network.  Download [here](http://www.vlfeat.org/matconvnet/pretrained/). *Default*:`imagenet-vgg-verydeep-19.mat`
 * `--pooling_type`: Type of pooling in convolutional neural network. *Choices*: `avg`, `max`. *Default*: `avg`
-* `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`.  
+* `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`
 * `--image_output_dir`: Directory to write output to.  *Default*: `./image_output`
 * `--img_name`: Filename of the output image.
 * `--verbose`: Boolean flag indicating if statements should be printed to the console.
@@ -246,10 +265,11 @@ python neural_style.py --video \
 #### Optimization Arguments
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`
-* `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1e3`
+* `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
+* `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
 
 #### Video Frame Arguments
-* `--video`: Boolean *flag* indicating if the user is creating a video.
+* `--video`: Boolean flag indicating if the user is creating a video.
 * `--start_frame`: First frame number. *Default*: `1`
 * `--end_frame`: Last frame number. *Default*: `1` 
 * `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `random`
@@ -261,6 +281,8 @@ python neural_style.py --video \
 * `--forward_optical_flow_frmt`: Format string of forward optical flow files. *Default*: `forward_{}_{}.flo`
 * `--content_weights_frmt`: Format string of optical flow consistency files. *Default*: `reliable_{}_{}.txt`
 * `--prev_frame_indices`: Previous frames to consider for longterm temporal consistency. *Default*: `1`
+* `--first_frame_iterations`: Maximum number of optimizer iterations of the first frame. *Default*: `2000`
+* `--frame_iterations`: Maximum number of optimizer iterations for each frame after the first frame. *Default*: `800`
 
 ## Questions and Errata
 
@@ -310,8 +332,9 @@ Artistic images were created by the popular historical artists:
 * [Édouard Manet](http://www.manet.org/)
 * [Pablo Picasso](https://www.wikiart.org/en/pablo-picasso)
 * [Joseph Mallord William Turner](https://en.wikipedia.org/wiki/J._M._W._Turner)
+* [Frida Kahlo](https://en.wikipedia.org/wiki/Frida_Kahlo)
 
-Several Bash shell scripts for testing were created by my brother [Sheldon Smith](http://www.imdb.com/name/nm4328496/).
+Bash shell scripts for testing were created by my brother [Sheldon Smith](http://www.imdb.com/name/nm4328496/).
 
 ## Citation
 

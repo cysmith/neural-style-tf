@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt           
-import tensorflow.python
 import tensorflow as tf
 import numpy as np 
 import scipy.io  
@@ -20,11 +18,11 @@ def parse_args():
 
   # options for single image
   parser.add_argument('--verbose', action='store_true',
-    help="Boolean flag indicating if statements should be printed to the console.")
+    help='Boolean flag indicating if statements should be printed to the console.')
 
   parser.add_argument('--img_name', type=str, 
-    default="result",
-    help="Filename of the output image.")
+    default='result',
+    help='Filename of the output image.')
 
   parser.add_argument('--style_imgs', nargs='+', type=str,
     help='Filenames of the style images (example: starry-night.jpg)', 
@@ -73,7 +71,7 @@ def parse_args():
   parser.add_argument('--content_loss_function', type=int,
     default=1,
     choices=[1, 2, 3],
-    help='A few different constants for the content layer loss functions have been presented. (default: %(default)s)')
+    help='Different constants for the content layer loss functions. (default: %(default)s)')
   
   parser.add_argument('--content_layers', type=str, 
     default=['conv4_2'],
@@ -112,12 +110,13 @@ def parse_args():
     help='Seed for the random number generator. (default: %(default)s)')
   
   parser.add_argument('--model_weights', type=str, 
-    default='imagenet-vgg-verydeep-19.mat')
+    default='imagenet-vgg-verydeep-19.mat',
+    help='Weights and biases of the VGG-19 network.')
   
   parser.add_argument('--pooling_type', type=str,
     default='avg',
     choices=['avg', 'max'],
-    help="Type of pooling in convolutional neural network. (default: %(default)s)")
+    help='Type of pooling in convolutional neural network. (default: %(default)s)')
   
   parser.add_argument('--device', type=str, 
     default='/gpu:0',
@@ -139,17 +138,23 @@ def parse_args():
     help='Learning rate parameter for the Adam optimizer. (default: %(default)s)')
   
   parser.add_argument('--max_iterations', type=int, 
-    default=1e3,
+    default=1000,
     help='Max number of iterations for the Adam or L-BFGS optimizer. (default: %(default)s)')
+
+  parser.add_argument('--print_iterations', type=int, 
+    default=50,
+    help='Number of iterations between optimizer print statements. (default: %(default)s)')
   
   # options for video frames
   parser.add_argument('--video', action='store_true', 
     help='Boolean flag indicating if the user is generating a video.')
 
-  parser.add_argument('--start_frame', type=int, default=1,
+  parser.add_argument('--start_frame', type=int, 
+  	default=1,
     help='First frame number.')
   
-  parser.add_argument('--end_frame', type=int, default=1,
+  parser.add_argument('--end_frame', type=int, 
+  	default=1,
     help='Last frame number.')
   
   parser.add_argument('--first_frame_type', type=str,
@@ -189,8 +194,21 @@ def parse_args():
   parser.add_argument('--prev_frame_indices', nargs='+', type=int, 
     default=[1],
     help='Previous frames to consider for longterm temporal consistency.')
+
+  parser.add_argument('--first_frame_iterations', type=int, 
+    default=2000,
+    help='Maximum number of optimizer iterations of the first frame. (default: %(default)s)')
   
+  parser.add_argument('--frame_iterations', type=int, 
+    default=800,
+    help='Maximum number of optimizer iterations for each frame after the first frame. (default: %(default)s)')
+
   args = parser.parse_args()
+
+  # normalize weights
+  args.style_layer_weights   = norm(args.style_layer_weights)
+  args.content_layer_weights = norm(args.content_layer_weights)
+  args.style_imgs_weights    = norm(args.style_imgs_weights)
 
   # create directories for output
   if args.video:
@@ -208,7 +226,7 @@ def parse_args():
 vgg19_mean = np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
 
 def build_vgg19(input_img):
-  if args.verbose: print("\nBUILDING VGG-19 NETWORK")
+  if args.verbose: print('\nBUILDING VGG-19 NETWORK')
   net = {}
   _, h, w, d     = input_img.shape
   
@@ -324,9 +342,13 @@ def content_layer_loss(p, x):
   _, h, w, d = p.get_shape()
   M = h.value * w.value
   N = d.value
-  loss = (1./(2 * N**0.5 * M**0.5 )) * tf.reduce_sum(tf.pow((x - p), 2))
-  #loss = (1./2.) * tf.reduce_sum(tf.pow((x - p), 2))
-  #loss = (1./(N * M)) * tf.reduce_sum(tf.pow((x - p), 2)) 
+  if args.content_loss_function   == 1:
+  	K = 1. / (2 * N**0.5 * M**0.5)
+  elif args.content_loss_function == 2:
+  	K = 1. / 2.
+  elif args.content_loss_function == 3:  
+  	K = 1. / (N * M)
+  loss = K * tf.reduce_sum(tf.pow((x - p), 2))
   return loss
 
 def gram_matrix(x, area, depth):
@@ -398,7 +420,6 @@ def sum_content_losses(sess, net, content_img):
     p = sess.run(net[layer])
     x = net[layer]
     p = tf.convert_to_tensor(p)
-    x = tf.convert_to_tensor(x)
     content_loss += content_layer_loss(p, x) * weight
   content_loss /= float(len(args.content_layers))
   return content_loss
@@ -471,7 +492,7 @@ def write_image(path, img):
 def preprocess(img, mean):
   # BGR to RGB
   img = img[...,::-1]
-  # shape (H, W, D) to (1, H, W, D)
+  # shape (h, w, d) to (1, h, w, d)
   img = img[np.newaxis,:,:,:]
   # subtract mean
   img -= mean
@@ -480,7 +501,7 @@ def preprocess(img, mean):
 def postprocess(img, mean):
   # add mean
   img += mean
-  # shape (1, H, W, D) to (H, W, D)
+  # shape (1, h, w, d) to (h, w, d)
   img = img[0]
   img = np.clip(img, 0, 255).astype('uint8')
   # RGB to BGR
@@ -488,7 +509,7 @@ def postprocess(img, mean):
   return img
 
 def read_flow_file(path):
-  with open(path, "rb") as f:
+  with open(path, 'rb') as f:
     # 4 bytes header
     header = struct.unpack('4s', f.read(4))[0]
     # 4 bytes width, height    
@@ -514,6 +535,9 @@ def read_weights_file(path):
   # expand to 3 channels
   weights = np.dstack([vals.astype(np.float32)] * 3)
   return weights
+
+def norm(weights):
+  return [float(i)/sum(weights) for i in weights]
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
@@ -558,13 +582,13 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     optimizer = get_optimizer(L_total)
 
     if args.optimizer == 'adam':
-      minimize_with_adam(sess, net, optimizer, init_img)
+      minimize_with_adam(sess, net, optimizer, init_img, L_total)
     elif args.optimizer == 'lbfgs':
       minimize_with_lbfgs(sess, net, optimizer, init_img)
     
     output_img = sess.run(net['input'])
     
-    if args.is_original_colors:
+    if args.original_colors:
       output_img = convert_to_original_colors(np.copy(content_img), np.copy(output_img))
 
     if args.video:
@@ -579,9 +603,9 @@ def minimize_with_lbfgs(sess, net, optimizer, init_img):
   sess.run(net['input'].assign(init_img))
   optimizer.minimize(sess)
 
-def minimize_with_adam(sess, net, optimizer, init_img):
+def minimize_with_adam(sess, net, optimizer, init_img, loss):
   if args.verbose: print('MINIMIZING LOSS USING: ADAM OPTIMIZER')
-  train_op = optimizer.minimize(L_total)
+  train_op = optimizer.minimize(loss)
   init_op = tf.initialize_all_variables()
   sess.run(init_op)
   sess.run(net['input'].assign(init_img))
@@ -591,12 +615,13 @@ def minimize_with_adam(sess, net, optimizer, init_img):
     iterations += 1
 
 def get_optimizer(loss):
+  print_iterations = args.print_iterations if args.verbose else 0
   if args.optimizer == 'lbfgs':
     optimizer = tf.contrib.opt.ScipyOptimizerInterface(
       loss, 
       method='L-BFGS-B',
       options={'maxiter': args.max_iterations,
-                  'disp': args.verbose})
+                  'disp': print_iterations})
   elif args.optimizer == 'adam':
     optimizer = tf.train.AdamOptimizer(args.learning_rate)
   return optimizer
@@ -609,40 +634,42 @@ def write_video_output(frame, output_img):
 def write_image_output(output_img, content_img, style_imgs, init_img):
   out_dir = os.path.join(args.img_output_dir, args.img_name)
   maybe_make_directory(out_dir)
-  img_path = os.path.join(out_dir, "output.png")
-  content_path = os.path.join(out_dir, "content.png")
-  init_path = os.path.join(out_dir, "init.png")
+  img_path = os.path.join(out_dir, args.img_name+'.png')
+  content_path = os.path.join(out_dir, 'content.png')
+  init_path = os.path.join(out_dir, 'init.png')
 
   write_image(img_path, output_img)
   write_image(content_path, content_img)
   write_image(init_path, init_img)
   index = 0
   for style_img in style_imgs:
-    path = os.path.join(out_dir, str(index)+"_style.png")
+    path = os.path.join(out_dir, 'style_'+str(index)+'.png')
     write_image(path, style_img)
     index += 1
-
+  
   # save the configuration settings
-  out_file = os.path.join(out_dir, "meta_data.txt")
-  f = open(out_file, "w")
-  f.write("image name: {}\n".format(args.img_name))
-  f.write("content: {}\n".format(args.content_img))
+  out_file = os.path.join(out_dir, 'meta_data.txt')
+  f = open(out_file, 'w')
+  f.write('image name: {}\n'.format(args.img_name))
+  f.write('content: {}\n'.format(args.content_img))
   index = 0
   for style_img, weight in zip(args.style_imgs, args.style_imgs_weights):
-    f.write("styles ["+str(index)+"]: {} * {}\n".format(weight, style_img))
+    f.write('styles ['+str(index)+']: {} * {}\n'.format(weight, style_img))
+    index += 1
   index = 0
   if args.style_mask_imgs is not None:
     for mask in args.style_mask_imgs:
-      f.write("style masks ["+str(index)+"]: {}\n".format(mask))
-  f.write("init_type: {}\n".format(args.init_img_type))
-  f.write("content_weight: {}\n".format(args.content_weight))
-  f.write("style_weight: {}\n".format(args.style_weight))
-  f.write("tv_weight: {}\n".format(args.tv_weight))
-  f.write("content_layers: {}\n".format(args.content_layers))
-  f.write("style_layers: {}\n".format(args.style_layers))
-  f.write("optimizer_type: {}\n".format(args.optimizer))
-  f.write("max_iterations: {}\n".format(args.max_iterations))
-  f.write("max_image_size: {}\n".format(args.max_size))
+      f.write('style masks ['+str(index)+']: {}\n'.format(mask))
+      index += 1
+  f.write('init_type: {}\n'.format(args.init_img_type))
+  f.write('content_weight: {}\n'.format(args.content_weight))
+  f.write('style_weight: {}\n'.format(args.style_weight))
+  f.write('tv_weight: {}\n'.format(args.tv_weight))
+  f.write('content_layers: {}\n'.format(args.content_layers))
+  f.write('style_layers: {}\n'.format(args.style_layers))
+  f.write('optimizer_type: {}\n'.format(args.optimizer))
+  f.write('max_iterations: {}\n'.format(args.max_iterations))
+  f.write('max_image_size: {}\n'.format(args.max_size))
   f.close()
 
 '''
@@ -752,8 +779,7 @@ def warp_image(src, flow):
   # remap pixels to optical flow
   dst = cv2.remap(
     src, flow_map[0], flow_map[1], 
-    interpolation=cv2.INTER_CUBIC, 
-    borderMode=cv2.BORDER_TRANSPARENT)
+    interpolation=cv2.INTER_CUBIC, borderMode=cv2.BORDER_TRANSPARENT)
   return dst
 
 def convert_to_original_colors(content_img, stylized_img):
@@ -787,6 +813,7 @@ def render_video():
         content_frame = get_content_frame(frame)
         style_imgs = get_style_images(content_frame, args.style_scale)
         init_img = get_init_image(args.first_frame_type, content_frame, style_imgs, frame)
+        args.max_iterations = args.first_frame_iterations
         tick = time.time()
         stylize(content_frame, style_imgs, init_img, frame)
         tock = time.time()
@@ -795,6 +822,7 @@ def render_video():
         content_frame = get_content_frame(frame)
         style_imgs = get_style_images(content_frame, args.style_scale)
         init_img = get_init_image(args.init_frame_type, content_frame, style_imgs, frame)
+        args.max_iterations = args.frame_iterations
         tick = time.time()
         stylize(content_frame, style_imgs, init_img, frame)
         tock = time.time()
