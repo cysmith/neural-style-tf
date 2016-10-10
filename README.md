@@ -112,16 +112,16 @@ Style can be transferred to semantic segmentations in the content image.
 <img src="examples/segmentation/00110.jpg" height="192px">
 <img src="examples/segmentation/00110_mask.png" height="192px">
 <img src="examples/segmentation/00110_output.png" height="192px">  
-<img src="examples/segmentation/02630.png" height="192px">
-<img src="examples/segmentation/02630_mask.png" height="192px">
-<img src="examples/segmentation/02630_output.png" height="192px">  
+<img src="examples/segmentation/00017.jpg" height="192px">
+<img src="examples/segmentation/00017_mask.png" height="192px">
+<img src="examples/segmentation/00017_output.png" height="192px">  
 
 <img src="examples/segmentation/00768.jpg" height="192px">
 <img src="examples/segmentation/00768_mask.png" height="192px">
 <img src="examples/segmentation/00768_output.png" height="192px">
-<img src="examples/segmentation/00017.jpg" height="192px">
-<img src="examples/segmentation/00017_mask.png" height="192px">
-<img src="examples/segmentation/00017_output.png" height="192px">
+<img src="examples/segmentation/02630.png" height="192px">
+<img src="examples/segmentation/02630_mask.png" height="192px">
+<img src="examples/segmentation/02630_output.png" height="192px"> 
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
