@@ -149,11 +149,11 @@ def parse_args():
   parser.add_argument('--video', action='store_true', 
     help='Boolean flag indicating if the user is generating a video.')
 
-  parser.add_argument('--start_frame', type=int, 
+  parser.add_argument('--start_frame', type=int,
   	default=1,
     help='First frame number.')
   
-  parser.add_argument('--end_frame', type=int, 
+  parser.add_argument('--end_frame', type=int,
   	default=1,
     help='Last frame number.')
   
