@@ -582,7 +582,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     optimizer = get_optimizer(L_total)
 
     if args.optimizer == 'adam':
-      minimize_with_adam(sess, net, optimizer, init_img)
+      minimize_with_adam(sess, net, optimizer, init_img, L_total)
     elif args.optimizer == 'lbfgs':
       minimize_with_lbfgs(sess, net, optimizer, init_img)
     
@@ -603,9 +603,9 @@ def minimize_with_lbfgs(sess, net, optimizer, init_img):
   sess.run(net['input'].assign(init_img))
   optimizer.minimize(sess)
 
-def minimize_with_adam(sess, net, optimizer, init_img):
+def minimize_with_adam(sess, net, optimizer, init_img, loss):
   if args.verbose: print('MINIMIZING LOSS USING: ADAM OPTIMIZER')
-  train_op = optimizer.minimize(L_total)
+  train_op = optimizer.minimize(loss)
   init_op = tf.initialize_all_variables()
   sess.run(init_op)
   sess.run(net['input'].assign(init_img))
@@ -634,7 +634,7 @@ def write_video_output(frame, output_img):
 def write_image_output(output_img, content_img, style_imgs, init_img):
   out_dir = os.path.join(args.img_output_dir, args.img_name)
   maybe_make_directory(out_dir)
-  img_path = os.path.join(out_dir, 'output.png')
+  img_path = os.path.join(out_dir, args.img_name+'.png')
   content_path = os.path.join(out_dir, 'content.png')
   init_path = os.path.join(out_dir, 'init.png')
 
@@ -643,7 +643,7 @@ def write_image_output(output_img, content_img, style_imgs, init_img):
   write_image(init_path, init_img)
   index = 0
   for style_img in style_imgs:
-    path = os.path.join(out_dir, str(index)+'_style.png')
+    path = os.path.join(out_dir, 'style_'+str(index)+'.png')
     write_image(path, style_img)
     index += 1
   
