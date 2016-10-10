@@ -73,7 +73,7 @@ More than one style image can be used to blend multiple artistic styles.
 ### Style Interpolation
 When using multiple style images, the degree to which they are blended can be controlled.
 <p align="center">
-<img src="examples/style_interpolation/taj_mahal_scream_1_starry_9.png" height="178px">
+<img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_5_starry_5.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_9_starry_1.png" height="178px">
 
