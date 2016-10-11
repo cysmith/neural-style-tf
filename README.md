@@ -77,9 +77,9 @@ When using multiple style images, the degree to which they are blended can be co
 <img src="examples/style_interpolation/taj_mahal_scream_1_starry_9.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_9_starry_1.png" height="178px">
 
-<img src="examples/style_interpolation/taj_mahal_afremov_grey_9_1.png" height="178px">
+<img src="examples/style_interpolation/taj_mahal_afremov_grey_8_2.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_5_5.png" height="178px">
-<img src="examples/style_interpolation/taj_mahal_afremov_grey_1_9.png" height="178px">
+<img src="examples/style_interpolation/taj_mahal_afremov_grey_2_8.png" height="178px">
 </p>
 
 ### Transfer style but not color
