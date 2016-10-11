@@ -291,10 +291,6 @@ python neural_style.py --video \
 
 Send questions or issues: cysmith1010@gmail.com
 
-If you want to contribute, please try to:
-* Avoid esoteric one-liners.  
-* Avoid unnecessary or nested lambda expressions. 
-
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
 These produce better and faster results, but can consume a lot of memory. You can reduce memory usage with the following:
