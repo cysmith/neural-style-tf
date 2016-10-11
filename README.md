@@ -270,16 +270,12 @@ python neural_style.py --video \
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
 * `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
-* `--content_loss_function`: Different constants K in the content loss function. *Choices*: `1`, `2`, `3`. *Default*: `1`
-<p align="center">
-<img src="examples/equations/content.png" width="321px">
-</p>
 
 #### Video Frame Arguments
 * `--video`: Boolean flag indicating if the user is creating a video.
 * `--start_frame`: First frame number. *Default*: `1`
 * `--end_frame`: Last frame number. *Default*: `1` 
-* `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `content`
+* `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `random`
 * `--init_frame_type`: Image used to initialize the network during the every rendering after the first frame. *Choices*: `prev_warped`, `prev`, `content`, `random`, `style`. *Default*: `prev_warped`
 * `--video_input_dir`: Relative or absolute directory path to input frames. *Default*: `./video_input`
 * `--video_output_dir`: Relative or absolute directory path to write output frames to. *Default*: `./video_output`
@@ -291,9 +287,13 @@ python neural_style.py --video \
 * `--first_frame_iterations`: Maximum number of optimizer iterations of the first frame. *Default*: `2000`
 * `--frame_iterations`: Maximum number of optimizer iterations for each frame after the first frame. *Default*: `800`
 
-## Questions and Errata
+## Questions, Errata, Pull Requests
 
-Send questions or issues to: cysmith1010@gmail.com
+Send questions or issues: cysmith1010@gmail.com
+
+If you want to contribute, please try to:
+* Avoid esoteric one-liners.  
+* Avoid unnecessary lambda expressions. 
 
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
