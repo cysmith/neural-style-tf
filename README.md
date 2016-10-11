@@ -253,7 +253,6 @@ python neural_style.py --video \
 * `--style_layers`: *Space-separated* VGG19 layer names used for the style image. *Default*: `relu1_1 relu2_1 relu3_1 relu4_1 relu5_1`
 * `--content_layer_weights`: Space-separated weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: Space-separated weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
-* `--style_scale`: Scale of the style image. Not currently implemented.
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
 * `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
