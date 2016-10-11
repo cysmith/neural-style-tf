@@ -43,7 +43,7 @@ Here we reproduce Figure 2 from the first paper, which renders a photograph of t
 
 ### Content / Style Tradeoff
 
-The algorithm allows the user to trade-off the relative weight of the style and content reconstruction terms.  
+The relative weights of the style and content transfer can be controlled.  
 
 Here we render with an increasing style weight applied to [Red Canna](http://www.georgiaokeeffe.net/red-canna.jsp):
 <p align="center">
