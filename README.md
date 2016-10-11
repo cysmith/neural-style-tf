@@ -287,7 +287,7 @@ python neural_style.py --video \
 * `--first_frame_iterations`: Maximum number of optimizer iterations of the first frame. *Default*: `2000`
 * `--frame_iterations`: Maximum number of optimizer iterations for each frame after the first frame. *Default*: `800`
 
-## Questions, Errata, Pull Requests
+## Questions and Errata
 
 Send questions or issues: cysmith1010@gmail.com
 
