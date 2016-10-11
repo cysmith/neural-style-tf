@@ -165,7 +165,6 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 * Download the [VGG-19 model weights](http://www.vlfeat.org/matconvnet/pretrained/) (see the "VGG-VD models from the *Very Deep Convolutional Networks for Large-Scale Visual Recognition* project" section). More info about the VGG-19 network can be found [here](http://www.robots.ox.ac.uk/~vgg/research/very_deep/).
 * After downloading, copy the weights file `imagenet-vgg-verydeep-19.mat` to the project directory.
 
-
 ## Usage
 ### Basic Usage
 
@@ -246,8 +245,8 @@ python neural_style.py --video \
 * `--init_img_type`: Image used to initialize the network. *Choices*: `content`, `random`, `style`. *Default*: `content`
 * `--max_size`: Maximum width or height of the input images. *Default*: `512`
 * `--content_weight`: Weight for the content loss function. *Default*: `5e0`
-* `--style_weight`: Weight for the style loss function. *Default*: `1e4`
-* `--tv_weight`: Weight for the total variational loss function. *Default*: `0`
+* `--style_weight`: Weight for the style loss function. *Default*: `1e3`
+* `--tv_weight`: Weight for the total variational loss function. *Default*: `1e-3`
 * `--temporal_weight`: Weight for the temporal loss function. *Default*: `2e2`
 * `--content_layers`: *Space-separated* VGG19 layer names used for the content image. *Default*: `conv4_2`
 * `--style_layers`: *Space-separated* VGG19 layer names used for the style image. *Default*: `relu1_1 relu2_1 relu3_1 relu4_1 relu5_1`
