@@ -293,7 +293,7 @@ Send questions or issues: cysmith1010@gmail.com
 
 If you want to contribute, please try to:
 * Avoid esoteric one-liners.  
-* Avoid unnecessary lambda expressions. 
+* Avoid unnecessary or nested lambda expressions. 
 
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
