@@ -83,7 +83,7 @@ When using multiple style images, the degree of blending between the images can 
 </p>
 
 ### Transfer style but not color
-By including the flag `--original_colors` the output image will preserve the color scheme of the original image.
+The color scheme of the original image can be preserved by including the flag `--original_colors`. 
 
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
