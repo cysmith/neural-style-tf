@@ -45,6 +45,9 @@ style_image="$2"
 style_dir=$(dirname "$style_image")
 style_filename=$(basename "$style_image")
 
+if [ ! -d "./video_input" ]; then
+  mkdir -p ./video_input
+fi
 temp_dir="./video_input/${content_filename}"
 
 # Create output folder
@@ -56,9 +59,9 @@ eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=wi
 width="${streams_stream_0_width}"
 height="${streams_stream_0_height}"
 if [ "$width" -gt "$height" ]; then
-	max_size="$width"
+  max_size="$width"
 else
-	max_size="$height"
+  max_size="$height"
 fi
 num_frames=$(find "$temp_dir" -iname "*.ppm" | wc -l)
 
@@ -81,4 +84,6 @@ echo "Converting image sequence to video.  This should be quick..."
 $FFMPEG -v quiet -i ./video_output/frame_%04d.ppm ./video_output/${content_filename}-stylized.$extension
 
 # Clean up garbage
-rm -rf "${temp_dir}"
+if [ -d "${temp_dir}" ]; then
+  rm -rf "${temp_dir}"
+fi

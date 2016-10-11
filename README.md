@@ -73,13 +73,13 @@ More than one style image can be used to blend multiple artistic styles.
 ### Style Interpolation
 When using multiple style images, the degree to which they are blended can be controlled.
 <p align="center">
+<img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_1_starry_9.png" height="178px">
-<img src="examples/style_interpolation/taj_mahal_scream_5_starry_5.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_9_starry_1.png" height="178px">
 
-<img src="examples/style_interpolation/taj_mahal_afremov_grey_9_1.png" height="178px">
+<img src="examples/style_interpolation/taj_mahal_afremov_grey_8_2.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_5_5.png" height="178px">
-<img src="examples/style_interpolation/taj_mahal_afremov_grey_1_9.png" height="178px">
+<img src="examples/style_interpolation/taj_mahal_afremov_grey_2_8.png" height="178px">
 </p>
 
 ### Transfer style but not color
@@ -114,14 +114,14 @@ Style can be transferred to semantic segmentations in the content image.
 <img src="examples/segmentation/00110_output.png" height="192px">  
 <img src="examples/segmentation/00017.jpg" height="192px">
 <img src="examples/segmentation/00017_mask.png" height="192px">
-<img src="examples/segmentation/00017_output.png" height="192px">
+<img src="examples/segmentation/00017_output.png" height="192px">  
 
 <img src="examples/segmentation/00768.jpg" height="192px">
 <img src="examples/segmentation/00768_mask.png" height="192px">
 <img src="examples/segmentation/00768_output.png" height="192px">
 <img src="examples/segmentation/02630.png" height="192px">
 <img src="examples/segmentation/02630_mask.png" height="192px">
-<img src="examples/segmentation/02630_output.png" height="192px">
+<img src="examples/segmentation/02630_output.png" height="192px"> 
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
