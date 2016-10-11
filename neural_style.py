@@ -340,11 +340,11 @@ def content_layer_loss(p, x):
   M = h.value * w.value
   N = d.value
   if args.content_loss_function   == 1:
-  	K = 1. / (2. * N**0.5 * M**0.5)
+    K = 1. / (2. * N**0.5 * M**0.5)
   elif args.content_loss_function == 2:
     K = 1. / (N * M)
   elif args.content_loss_function == 3:  
-  	K = 1. / 2.
+    K = 1. / 2.
   loss = K * tf.reduce_sum(tf.pow((x - p), 2))
   return loss
 
