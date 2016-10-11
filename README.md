@@ -279,7 +279,7 @@ python neural_style.py --video \
 * `--video`: Boolean flag indicating if the user is creating a video.
 * `--start_frame`: First frame number. *Default*: `1`
 * `--end_frame`: Last frame number. *Default*: `1` 
-* `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `random`
+* `--first_frame_type`: Image used to initialize the network during the rendering of the first frame. *Choices*: `content`, `random`, `style`. *Default*: `content`
 * `--init_frame_type`: Image used to initialize the network during the every rendering after the first frame. *Choices*: `prev_warped`, `prev`, `content`, `random`, `style`. *Default*: `prev_warped`
 * `--video_input_dir`: Relative or absolute directory path to input frames. *Default*: `./video_input`
 * `--video_output_dir`: Relative or absolute directory path to write output frames to. *Default*: `./video_output`
