@@ -71,7 +71,7 @@ More than one style image can be used to blend multiple artistic styles.
 </p>
 
 ### Style Interpolation
-When using multiple style images, the degree to which they are blended can be controlled.
+When using multiple style images, the degree of blending between the images can be controlled.
 <p align="center">
 <img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_2_starry_8.png" height="178px">
@@ -83,7 +83,7 @@ When using multiple style images, the degree to which they are blended can be co
 </p>
 
 ### Transfer style but not color
-By including the flag `--original_colors` the output image will retain the colors of the original image.
+By including the flag `--original_colors` the output image will preserve the color scheme of the original image.
 
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
