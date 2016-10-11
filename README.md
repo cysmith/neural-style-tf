@@ -43,7 +43,7 @@ Here we reproduce Figure 2 from the first paper, which renders a photograph of t
 
 ### Content / Style Tradeoff
 
-The algorithm allows the user to trade-off the relative weight of the style and content reconstruction terms.  
+The relative weight of the style and content can be controlled.
 
 Here we render with an increasing style weight applied to [Red Canna](http://www.georgiaokeeffe.net/red-canna.jsp):
 <p align="center">
@@ -71,7 +71,7 @@ More than one style image can be used to blend multiple artistic styles.
 </p>
 
 ### Style Interpolation
-When using multiple style images, the degree to which they are blended can be controlled.
+When using multiple style images, the degree of blending between the images can be controlled.
 <p align="center">
 <img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_2_starry_8.png" height="178px">
@@ -83,7 +83,7 @@ When using multiple style images, the degree to which they are blended can be co
 </p>
 
 ### Transfer style but not color
-By including the flag `--original_colors` the output image will retain the colors of the original image.
+The color scheme of the original image can be controlled by including the flag `--original_colors`.
 
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
