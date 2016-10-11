@@ -43,7 +43,7 @@ Here we reproduce Figure 2 from the first paper, which renders a photograph of t
 
 ### Content / Style Tradeoff
 
-The relative weights of the style and content transfer can be controlled.  
+The algorithm allows the user to trade-off the relative weight of the style and content reconstruction terms.  
 
 Here we render with an increasing style weight applied to [Red Canna](http://www.georgiaokeeffe.net/red-canna.jsp):
 <p align="center">
@@ -71,7 +71,7 @@ More than one style image can be used to blend multiple artistic styles.
 </p>
 
 ### Style Interpolation
-When using multiple style images, the degree of blending between the images can be controlled.
+When using multiple style images, the degree to which they are blended can be controlled.
 <p align="center">
 <img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_2_starry_8.png" height="178px">
@@ -83,7 +83,7 @@ When using multiple style images, the degree of blending between the images can 
 </p>
 
 ### Transfer style but not color
-The color scheme of the original image can be preserved by including the flag `--original_colors`. 
+By including the flag `--original_colors` the output image will retain the colors of the original image.
 
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
@@ -270,6 +270,10 @@ python neural_style.py --video \
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
 * `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
+* `--content_loss_function`: Different constants K in the content loss function. *Choices*: `1`, `2`, `3`. *Default*: `1`
+<p align="center">
+<img src="examples/equations/content.png" width="321px">
+</p>
 
 #### Video Frame Arguments
 * `--video`: Boolean flag indicating if the user is creating a video.
@@ -290,6 +294,10 @@ python neural_style.py --video \
 ## Questions and Errata
 
 Send questions or issues: cysmith1010@gmail.com
+
+If you want to contribute, please try to:
+* Avoid esoteric one-liners.  
+* Avoid unnecessary or nested lambda expressions. 
 
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
