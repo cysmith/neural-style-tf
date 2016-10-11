@@ -62,17 +62,17 @@ else
 fi
 num_frames=$(find "$temp_dir" -iname "*.ppm" | wc -l)
 
-echo "Computing optical flow. This will take a while..."
+echo "Computing optical flow [CPU]. This will take a while..."
 cd ./video_input
 bash make-opt-flow.sh ${content_filename}/frame_%04d.ppm ${content_filename}
 cd ..
 
-echo "Rendering stylized video frames. This will take a while..."
-python neural_style.py --is_video \
+echo "Rendering stylized video frames [CPU & GPU]. This will take a while..."
+python neural_style.py --video \
 --video_input_dir "${temp_dir}" \
 --style_imgs_dir "${style_dir}" \
 --style_imgs "${style_filename}" \
---end_frame "$num_frames" \
+--end_frame "${num_frames}" \
 --max_size "${max_size}" \
 --verbose;
 
