@@ -40,4 +40,5 @@ python neural_style.py \
 --content_img_dir "${content_dir}" \
 --style_imgs "${style_filename}" \
 --style_imgs_dir "${style_dir}" \
---device "${device}";
+--device "${device}" \
+--verbose;

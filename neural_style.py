@@ -203,9 +203,9 @@ def parse_args():
   args = parser.parse_args()
 
   # normalize weights
-  args.style_layer_weights   = norm(args.style_layer_weights)
-  args.content_layer_weights = norm(args.content_layer_weights)
-  args.style_imgs_weights    = norm(args.style_imgs_weights)
+  args.style_layer_weights   = normalize(args.style_layer_weights)
+  args.content_layer_weights = normalize(args.content_layer_weights)
+  args.style_imgs_weights    = normalize(args.style_imgs_weights)
 
   # create directories for output
   if args.video:
@@ -534,7 +534,7 @@ def read_weights_file(path):
   weights = np.dstack([vals.astype(np.float32)] * 3)
   return weights
 
-def norm(weights):
+def normalize(weights):
   return [float(i)/sum(weights) for i in weights]
 
 def maybe_make_directory(dir_path):
