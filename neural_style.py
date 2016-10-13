@@ -465,7 +465,7 @@ def sum_shortterm_temporal_losses(sess, net, frame, input_img):
 '''
 def sum_total_variation_losses(sess, net, input_img):
   b, h, w, d = input_img.shape
-  x = sess.run(net['input'].assign(input_img))
+  x = net['input']
   tv_y_size = b * (h-1) * w * d
   tv_x_size = b * h * (w-1) * d
   loss_y = tf.nn.l2_loss(x[:,1:,:,:] - x[:,:h-1,:,:]) 
