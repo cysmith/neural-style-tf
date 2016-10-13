@@ -707,10 +707,10 @@ def get_content_image(content_img):
   # resize if > max size
   if h > w and h > mx:
     w = (float(mx) / float(h)) * w
-    img = cv2.resize(img, dsize=(int(w), mx), interpolation=cv2.INTER_CUBIC)
+    img = cv2.resize(img, dsize=(int(w), mx), interpolation=cv2.INTER_AREA)
   if w > mx:
     h = (float(mx) / float(w)) * h
-    img = cv2.resize(img, dsize=(mx, int(h)), interpolation=cv2.INTER_CUBIC)
+    img = cv2.resize(img, dsize=(mx, int(h)), interpolation=cv2.INTER_AREA)
   img = preprocess(img, vgg19_mean)
   return img
 
@@ -721,7 +721,7 @@ def get_style_images(content_img):
     path = os.path.join(args.style_imgs_dir, style_fn)
     # bgr image
     img = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32)
-    img = cv2.resize(img, dsize=(cw, ch))
+    img = cv2.resize(img, dsize=(cw, ch), interpolation=cv2.INTER_AREA)
     img = preprocess(img, vgg19_mean)
     style_imgs.append(img)
   return style_imgs
@@ -735,7 +735,7 @@ def get_noise_image(noise_ratio, content_img):
 def get_mask_image(mask_img, width, height):
   path = os.path.join(args.content_img_dir, mask_img)
   img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-  img = cv2.resize(img, dsize=(width, height)).astype(np.float32)
+  img = cv2.resize(img, dsize=(width, height), interpolation=cv2.INTER_AREA).astype(np.float32)
   mx = np.amax(img)
   img /= mx
   return img
