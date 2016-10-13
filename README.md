@@ -308,6 +308,9 @@ All images were rendered on a machine with:
 * **CPU:** Intel Core i7-6800K @ 3.40GHz × 12 
 * **GPU:** NVIDIA GeForce GTX 1080/PCIe/SSE2
 * **OS:** Linux Ubuntu 16.04.1 LTS 64-bit
+* **CUDA:** 8.0
+* **python:** 2.7.12
+* **tensorflow:** 0.10.0rc
 
 ## Acknowledgements
 
