@@ -311,6 +311,7 @@ All images were rendered on a machine with:
 * **CUDA:** 8.0
 * **python:** 2.7.12
 * **tensorflow:** 0.10.0rc
+* **opencv:** 2.4.9.1
 
 ## Acknowledgements
 
