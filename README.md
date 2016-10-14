@@ -30,7 +30,7 @@ Transfering the style of various artworks to the same content image produces qua
 <img src="examples/lions/styles/basquiat_crop.jpg" width="192"/>
 </p>
 
-Here we reproduce Figure 2 from the first paper, which renders a photograph of the Tubingen in Germany in the style of 5 different iconic paintings [The Shipwreck of the Minotaur](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck_of_the_minotaur), [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp):
+Here we reproduce Figure 3 from the first paper, which renders a photograph of the Tubingen in Germany in the style of 5 different iconic paintings [The Shipwreck of the Minotaur](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck_of_the_minotaur), [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp):
 <p align="center">
 <img src="examples/gatys_figure/tubingen.png" height="192px">
 <img src="examples/gatys_figure/tubingen_shipwreck.png" height="192px">
@@ -250,8 +250,8 @@ python neural_style.py --video \
 * `--temporal_weight`: Weight for the temporal loss function. *Default*: `2e2`
 * `--content_layers`: *Space-separated* VGG19 layer names used for the content image. *Default*: `conv4_2`
 * `--style_layers`: *Space-separated* VGG19 layer names used for the style image. *Default*: `relu1_1 relu2_1 relu3_1 relu4_1 relu5_1`
-* `--content_layer_weights`: Space-separated weights of each content layer to the content loss. *Default*: `1.0`
-* `--style_layer_weights`: Space-separated weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
+* `--content_layer_weights`: *Space-separated* weights of each content layer to the content loss. *Default*: `1.0`
+* `--style_layer_weights`: *Space-separated* weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
 * `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
