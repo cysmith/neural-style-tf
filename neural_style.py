@@ -358,7 +358,7 @@ def style_layer_loss(a, x):
   return loss
 
 def gram_matrix(x, area, depth):
-  F = tf.reshape(x[0], (area, depth))
+  F = tf.reshape(x, (area, depth))
   G = tf.matmul(tf.transpose(F), F)
   return G
 
