@@ -335,7 +335,7 @@ Artistic images were created by the modern artists:
 * [Voka](http://www.voka.at/)
 
 Artistic images were created by the popular historical artists:
-* [Vincent Van Gough](https://www.wikiart.org/en/vincent-van-gogh)
+* [Vincent Van Gogh](https://www.wikiart.org/en/vincent-van-gogh)
 * [Wassily Kandinsky](https://www.wikiart.org/en/wassily-kandinsky)
 * [Georgia O'Keeffe](http://www.georgiaokeeffe.net/)
 * [Jean-Michel Basquiat](http://basquiat.com/)
