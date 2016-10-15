@@ -61,7 +61,7 @@ def parse_args():
   
   parser.add_argument('--tv_weight', type=float, 
     default=1e-3,
-    help='Weight for the transvariational loss function. Set small (e.g. 1e-3). (default: %(default)s)')
+    help='Weight for the total variational loss function. Set small (e.g. 1e-3). (default: %(default)s)')
 
   parser.add_argument('--temporal_weight', type=float, 
     default=2e2,
@@ -70,7 +70,7 @@ def parse_args():
   parser.add_argument('--content_loss_function', type=int,
     default=1,
     choices=[1, 2, 3],
-    help='Different constants for the content layer loss functions. (default: %(default)s)')
+    help='Different constants for the content layer loss function. (default: %(default)s)')
   
   parser.add_argument('--content_layers', type=str, 
     default=['conv4_2'],
