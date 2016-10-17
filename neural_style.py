@@ -72,7 +72,7 @@ def parse_args():
     choices=[1, 2, 3],
     help='Different constants for the content layer loss function. (default: %(default)s)')
   
-  parser.add_argument('--content_layers', type=str, 
+  parser.add_argument('--content_layers', nargs='+', type=str, 
     default=['conv4_2'],
     help='VGG19 layers used for the content image. (default: %(default)s)')
   
