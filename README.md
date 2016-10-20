@@ -177,7 +177,7 @@ bash stylize_image.sh <path_to_content_image> <path_to_style_image>
 ```
 *Example*:
 ```
-bash stylize_image.sh ./image_input/lion.jpg ./styles/starry-night.jpg
+bash stylize_image.sh ./image_input/lion.jpg ./styles/kandinsky.jpg
 ```
 *Note*: Supported image formats include: `.png`, `.jpg`, `.ppm`, `.pgm`
 
@@ -192,7 +192,7 @@ bash stylize_video.sh <path_to_video> <path_to_style_image>
 ```
 *Example*:
 ```
-bash stylize_video.sh ./video_input/video.mp4 ./styles/starry-night.jpg
+bash stylize_video.sh ./video_input/video.mp4 ./styles/kandinsky.jpg
 ```
 
 *Note*: Supported video formats include: `.mp4`, `.mov`, `.mkv`
