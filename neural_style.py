@@ -56,7 +56,7 @@ def parse_args():
     help='Weight for the content loss function. (default: %(default)s)')
   
   parser.add_argument('--style_weight', type=float, 
-    default=1e3,
+    default=1e4,
     help='Weight for the style loss function. (default: %(default)s)')
   
   parser.add_argument('--tv_weight', type=float, 
