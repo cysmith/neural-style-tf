@@ -253,7 +253,7 @@ python neural_style.py --video \
 * `--content_layer_weights`: *Space-separated* weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: *Space-separated* weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
-* `--color_convert_type`: Color space for conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
+* `--color_convert_type`: Color spaces (YUV, YCrBr, CIE Luv, CIE Lab) for luminance-matching conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
 * `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
 * `--noise_ratio`: Interpolation value between the content image and noise image if network is initialized with `random`. *Default*: `1.0`
