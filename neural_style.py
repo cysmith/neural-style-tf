@@ -93,7 +93,7 @@ def parse_args():
 
   parser.add_argument('--color_convert_type', type=str,
     default='yuv',
-    choices=['yuv', 'ycrcb', 'luv'],
+    choices=['yuv', 'ycrcb', 'luv', 'lab'],
     help='Color space for conversion to original colors (default: %(default)s)')
 
   parser.add_argument('--style_mask', action='store_true',
@@ -800,6 +800,9 @@ def convert_to_original_colors(content_img, stylized_img):
   elif args.color_convert_type == 'luv':
     cvt_type = cv2.COLOR_BGR2LUV
     inv_cvt_type = cv2.COLOR_LUV2BGR
+  elif args.color_convert_type == 'lab':
+    cvt_type = cv2.COLOR_BGR2LAB
+    inv_cvt_type = cv2.COLOR_LAB2BGR
   content_cvt = cv2.cvtColor(content_img, cvt_type)
   stylized_cvt = cv2.cvtColor(stylized_img, cvt_type)
   c1, _, _ = cv2.split(stylized_cvt)
