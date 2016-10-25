@@ -167,8 +167,8 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_random_3.png" height="192">
 <img src="examples/initialization/init_random_4.png" height="192">
 </p>
-*Top row (left to right)*: Initialized with the content image, the style image, white noise (seed 1)  
-*Bottom row (left to right)*: Initialized with white noise (seed 2), white noise (seed 3), white noise (seed 4)
+*Top row (left to right)*: Initialized with the content image, the style image, white noise (RNG seed 1)  
+*Bottom row (left to right)*: Initialized with white noise (RNG seed 2), white noise (RNG seed 3), white noise (RNG seed 4)
 
 ## Setup
 #### Dependencies:
