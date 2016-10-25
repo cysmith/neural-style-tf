@@ -57,9 +57,6 @@ Here we render with an increasing style weight applied to [Red Canna](http://www
 ### Multiple Style Images
 More than one style image can be used to blend multiple artistic styles.
 
-*Top row (left to right)*: [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913)  
-*Bottom row (left to right)*: [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), [David Bowie](http://www.francoise-nielly.com/index.php/galerie/index/56) + [Skull](https://www.wikiart.org/en/jean-michel-basquiat/head) 
-
 <p align="center">
 <img src="examples/multiple_styles/tubingen_starry_scream.png" height="192px">
 <img src="examples/multiple_styles/tubingen_scream_kandinsky.png" height="192px">
@@ -69,12 +66,12 @@ More than one style image can be used to blend multiple artistic styles.
 <img src="examples/multiple_styles/tubingen_afremov_grey.png" height="192px">
 <img src="examples/multiple_styles/tubingen_basquiat_nielly.png" height="192px">
 </p>
+*Top row (left to right)*: [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913)  
+*Bottom row (left to right)*: [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), [David Bowie](http://www.francoise-nielly.com/index.php/galerie/index/56) + [Skull](https://www.wikiart.org/en/jean-michel-basquiat/head) 
 
 ### Style Interpolation
 When using multiple style images, the degree of blending between the images can be controlled.
 
-*Top row (left to right)*: content image, .2 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .8 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), .8 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .2 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893)  
-*Bottom row (left to right)*: .2 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .8 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .5 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .5 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .8 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .2 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html)
 <p align="center">
 <img src="image_input/taj_mahal.jpg" height="178px">
 <img src="examples/style_interpolation/taj_mahal_scream_2_starry_8.png" height="178px">
@@ -84,16 +81,18 @@ When using multiple style images, the degree of blending between the images can 
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_5_5.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_2_8.png" height="178px">
 </p>
+*Top row (left to right)*: content image, .2 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .8 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), .8 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .2 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893)  
+*Bottom row (left to right)*: .2 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .8 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .5 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .5 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .8 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .2 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html)
 
 ### Transfer style but not color
 The color scheme of the original image can be preserved by including the flag `--original_colors`.
 
-*Left to right*: content image, stylized image, stylized image with the original colors of the content image
 <p align="center">
 <img src="examples/original_colors/new_york.png" height="165px">
 <img src="examples/original_colors/stylized.png" height="165px">
 <img src="examples/original_colors/stylized_original_colors.png" height="165px">
 </p>
+*Left to right*: content image, stylized image, stylized image with the original colors of the content image
 
 ### Textures
 The algorithm is not constrained to artistic painting styles.  It can also be applied to photographic textures to create [pareidolic](https://en.wikipedia.org/wiki/Pareidolia) images.
@@ -129,7 +128,6 @@ Style can be transferred to semantic segmentations in the content image.
 
 Multiple styles can be transferred to the foreground and background of the content image.
 
-*Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 <p align="center">
 <img src="examples/segmentation/02390.jpg" height="192px">
 <img src="examples/segmentation/basquiat.png" height="192px">
@@ -145,6 +143,7 @@ Multiple styles can be transferred to the foreground and background of the conte
 <img src="examples/segmentation/02270_mask_face_inv.png" height="192px">
 <img src="examples/segmentation/02270_output.png" height="192px">
 </p>
+*Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
 ### Video
 Animations can be rendered by applying the algorithm to each source frame.  For the best results, the network is initialized with the previously stylized frame warped to the current frame according to the optical flow between the pair of frames.  Loss functions for temporal consistency are used to penalize pixels excluding disoccluded regions and motion boundaries.
@@ -154,6 +153,22 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 
 <img src="examples/video/output.gif">
 </p> 
+
+### Gradient Descent Initialization
+The gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` and `--init_first_frame_type` for video frames.  For a single image, the gradient descent can be initialized with white noise `random`, the content image `content`, or the style image `style`. For video frames, the gradient descent can also be initialized with the previous stylized frame `prev` or the previous stylized frame warped to the current frame `prev_warp`.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image converges to the same output.
+
+Here we reproduce Figure 6 from the first paper:
+<p align="center">
+<img src="examples/initialization/init_content.png" height="192px">
+<img src="examples/initialization/init_style.png" height="192px">
+<img src="examples/initialization/init_random_1.png" height="192px">  
+
+<img src="examples/initialization/init_random_2.png" height="192px">
+<img src="examples/initialization/init_random_3.png" height="192px">
+<img src="examples/initialization/init_random_4.png" height="192px">
+</p>
+*Top row (Left to right)*: Initialized with the content image, the style image, white noise with `--seed 1`   
+*Bottom row (Left to right)*: white noise with `--seed 2`, white noise with `--seed 3`, white noise with `--seed 4`
 
 ## Setup
 #### Dependencies:
