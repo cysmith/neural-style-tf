@@ -159,12 +159,16 @@ The initialization of the gradient descent is controlled using `--init_img_type`
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
-<img src="examples/initialization/init_content.png" width="192">
-<img src="examples/initialization/init_style.png" width="192">
-<img src="examples/initialization/init_random_1.png" width="192">
-<img src="examples/initialization/init_random_2.png" width="192">
+<img src="examples/initialization/init_content.png" height="192">
+<img src="examples/initialization/init_style.png" height="192">
+<img src="examples/initialization/init_random_1.png" height="192">
+
+<img src="examples/initialization/init_random_2.png" height="192">
+<img src="examples/initialization/init_random_3.png" height="192">
+<img src="examples/initialization/init_random_4.png" height="192">
 </p>
-*Left to right*: Initialized with the content image, the style image, white noise (seed 1), white noise (seed 2)
+*Top row (left to right)*: Initialized with the content image, the style image, white noise (seed 1)  
+*Bottom row (left to right)*: Initialized with white noise (seed 2), white noise (seed 3), white noise (seed 4)
 
 ## Setup
 #### Dependencies:
