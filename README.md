@@ -155,7 +155,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 </p> 
 
 ### Gradient Descent Initialization
-The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--init_first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise `random`, the content image `content`, or the style image `style`. For video frames, the gradient descent can also be initialized with the previous stylized frame `prev` or the previous stylized frame warped to the current frame `prev_warp`.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image converges to the same output.
+The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--init_first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise, the content image, or the style image. For video frames, the gradient descent can also be initialized with the previous stylized frame or the previous stylized frame warped to the current frame.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
@@ -167,8 +167,8 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_random_3.png" height="192px">
 <img src="examples/initialization/init_random_4.png" height="192px">
 </p>
-*Top row (Left to right)*: Initialized with the content image, the style image, white noise `--seed 1`   
-*Bottom row (Left to right)*: Initialized with white noise `--seed 2`, white noise `--seed 3`, white noise `--seed 4`
+*Top row (Left to right)*: Initialized with the content image, the style image, white noise (seed 1)  
+*Bottom row (Left to right)*: Initialized with white noise (seed 2), white noise (seed 3), white noise (seed 4)
 
 ## Setup
 #### Dependencies:
