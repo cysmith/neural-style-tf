@@ -265,7 +265,7 @@ python neural_style.py --video \
 * `--pooling_type`: Type of pooling in convolutional neural network. *Choices*: `avg`, `max`. *Default*: `avg`
 * `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`
 * `--image_output_dir`: Directory to write output to.  *Default*: `./image_output`
-* `--img_name`: Filename of the output image. *Default*: result
+* `--img_name`: Filename of the output image. *Default*: `result`
 * `--verbose`: Boolean flag indicating if statements should be printed to the console.
 
 #### Optimization Arguments
