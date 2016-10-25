@@ -155,7 +155,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 </p> 
 
 ### Gradient Descent Initialization
-The gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--init_first_frame_type` for video frames.  For a single image, the gradient descent can be initialized with white noise `random`, the content image `content`, or the style image `style`. For video frames, the gradient descent can also be initialized with the previous stylized frame `prev` or the previous stylized frame warped to the current frame `prev_warp`.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image converges to the same output.
+The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--init_first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise `random`, the content image `content`, or the style image `style`. For video frames, the gradient descent can also be initialized with the previous stylized frame `prev` or the previous stylized frame warped to the current frame `prev_warp`.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image converges to the same output.
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
