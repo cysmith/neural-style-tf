@@ -3,6 +3,7 @@ import numpy as np
 import scipy.io  
 import argparse 
 import struct
+import errno
 import time                       
 import cv2
 import os
@@ -486,7 +487,9 @@ def sum_total_variation_losses(sess, net, input_img):
 '''
 def read_image(path):
   # bgr image
-  img = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32)
+  img = cv2.imread(path, cv2.IMREAD_COLOR)
+  check_image(img, path)
+  img = img.astype(np.float32)
   img = preprocess(img, vgg19_mean)
   return img
 
@@ -540,11 +543,15 @@ def read_weights_file(path):
   return weights
 
 def normalize(weights):
-  return [float(i)/sum(weights) for i in weights]
+  return [float(i) / sum(weights) for i in weights]
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
     os.makedirs(dir_path)
+
+def check_image(img, path):
+  if img is None:
+    raise OSError(errno.ENOENT, "No such file", path)
 
 '''
   rendering -- where the magic happens
@@ -624,8 +631,7 @@ def get_optimizer(loss):
   print_iterations = args.print_iterations if args.verbose else 0
   if args.optimizer == 'lbfgs':
     optimizer = tf.contrib.opt.ScipyOptimizerInterface(
-      loss, 
-      method='L-BFGS-B',
+      loss, method='L-BFGS-B',
       options={'maxiter': args.max_iterations,
                   'disp': print_iterations})
   elif args.optimizer == 'adam':
@@ -706,7 +712,9 @@ def get_content_frame(frame):
 def get_content_image(content_img):
   path = os.path.join(args.content_img_dir, content_img)
    # bgr image
-  img = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32)
+  img = cv2.imread(path, cv2.IMREAD_COLOR)
+  check_image(img, path)
+  img = img.astype(np.float32)
   h, w, d = img.shape
   mx = args.max_size
   # resize if > max size
@@ -725,7 +733,9 @@ def get_style_images(content_img):
   for style_fn in args.style_imgs:
     path = os.path.join(args.style_imgs_dir, style_fn)
     # bgr image
-    img = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32)
+    img = cv2.imread(path, cv2.IMREAD_COLOR)
+    check_image(img, path)
+    img = img.astype(np.float32)
     img = cv2.resize(img, dsize=(cw, ch), interpolation=cv2.INTER_AREA)
     img = preprocess(img, vgg19_mean)
     style_imgs.append(img)
@@ -740,6 +750,7 @@ def get_noise_image(noise_ratio, content_img):
 def get_mask_image(mask_img, width, height):
   path = os.path.join(args.content_img_dir, mask_img)
   img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+  check_image(img, path)
   img = cv2.resize(img, dsize=(width, height), interpolation=cv2.INTER_AREA).astype(np.float32)
   mx = np.amax(img)
   img /= mx
@@ -748,9 +759,10 @@ def get_mask_image(mask_img, width, height):
 def get_prev_frame(frame):
   # previously stylized frame
   prev_frame = frame - 1
-  prev_frame_fn = args.content_frame_frmt.format(str(prev_frame).zfill(4))
-  prev_frame_path = os.path.join(args.video_output_dir, prev_frame_fn)
-  img = cv2.imread(prev_frame_path, cv2.IMREAD_COLOR)
+  fn = args.content_frame_frmt.format(str(prev_frame).zfill(4))
+  path = os.path.join(args.video_output_dir, fn)
+  img = cv2.imread(path, cv2.IMREAD_COLOR)
+  check_image(img, path)
   return img
 
 def get_prev_warped_frame(frame):
