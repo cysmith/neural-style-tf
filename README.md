@@ -251,8 +251,8 @@ python neural_style.py --video \
 * `--style_weight`: Weight for the style loss function. *Default*: `1e4`
 * `--tv_weight`: Weight for the total variational loss function. *Default*: `1e-3`
 * `--temporal_weight`: Weight for the temporal loss function. *Default*: `2e2`
-* `--content_layers`: *Space-separated* VGG19 layer names used for the content image. *Default*: `conv4_2`
-* `--style_layers`: *Space-separated* VGG19 layer names used for the style image. *Default*: `relu1_1 relu2_1 relu3_1 relu4_1 relu5_1`
+* `--content_layers`: *Space-separated* VGG-19 layer names used for the content image. *Default*: `conv4_2`
+* `--style_layers`: *Space-separated* VGG-19 layer names used for the style image. *Default*: `relu1_1 relu2_1 relu3_1 relu4_1 relu5_1`
 * `--content_layer_weights`: *Space-separated* weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: *Space-separated* weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
@@ -265,7 +265,7 @@ python neural_style.py --video \
 * `--pooling_type`: Type of pooling in convolutional neural network. *Choices*: `avg`, `max`. *Default*: `avg`
 * `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`
 * `--image_output_dir`: Directory to write output to.  *Default*: `./image_output`
-* `--img_name`: Filename of the output image.
+* `--img_name`: Filename of the output image. *Default*: `result`
 * `--verbose`: Boolean flag indicating if statements should be printed to the console.
 
 #### Optimization Arguments
