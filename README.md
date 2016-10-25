@@ -162,7 +162,8 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_content.png" width="192">
 <img src="examples/initialization/init_style.png" width="192">
 <img src="examples/initialization/init_random_1.png" width="192">  
-
+</p>
+<p align="center">
 <img src="examples/initialization/init_random_2.png" width="192">
 <img src="examples/initialization/init_random_3.png" width="192">
 <img src="examples/initialization/init_random_4.png" width="192">
