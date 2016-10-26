@@ -42,7 +42,6 @@ Here we reproduce Figure 3 from the first paper, which renders a photograph of t
 </p>
 
 ### Content / Style Tradeoff
-
 The relative weight of the style and content can be controlled.
 
 Here we render with an increasing style weight applied to [Red Canna](http://www.georgiaokeeffe.net/red-canna.jsp):
@@ -174,6 +173,55 @@ Here we reproduce Figure 6 from the first paper:
 </p>
 *Top row (left to right)*: Initialized with the content image, the style image, white noise (RNG seed 1)  
 *Bottom row (left to right)*: Initialized with white noise (RNG seed 2), white noise (RNG seed 3), white noise (RNG seed 4)
+
+### Layer Representations
+The feature complexities and receptive field sizes increase down the VGG-199 CNN heirarchy.  The rows in the below figure show the increasing complexity and size of local image structures as an increasing subset of CNN layers are used.  The columns show the alpha/beta ratio which is the relative weighting of the the content and style reconstruction (see Content / Style Tradeoff).
+
+Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.06576):
+<table align='center'>
+<tr align='center'>
+<td></td>
+<td>1 x 10^-5</td>
+<td>1 x 10^-4</td>
+<td>1 x 10^-3</td>
+<td>1 x 10^-2</td>
+</tr>
+<tr>
+<td>relu1_1</td>
+<td><img src="examples/layers/relu1_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu1_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/relu1_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/relu1_1_1e2.png" width="192"></td>
+</tr>
+<tr>
+<td>relu2_1</td>
+<td><img src="examples/layers/relu2_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu2_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/relu2_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/relu2_1_1e2.png" width="192"></td>
+</tr>
+<tr>
+<td>relu3_1</td>
+<td><img src="examples/layers/relu3_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu3_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/relu3_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/relu3_1_1e2.png" width="192"></td>
+</tr>
+<tr>
+<td>relu4_1</td>
+<td><img src="examples/layers/relu4_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu4_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/relu4_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/relu4_1_1e2.png" width="192"></td>
+</tr>
+<tr>
+<td>relu5_1</td>
+<td><img src="examples/layers/relu5_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu5_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/relu5_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/relu5_1_1e2.png" width="192"></td>
+</tr>
+</table>
 
 ## Setup
 #### Dependencies:
