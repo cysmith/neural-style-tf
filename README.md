@@ -91,6 +91,10 @@ The color scheme of the original image can be preserved by including the flag `-
 <img src="examples/original_colors/new_york.png" height="165px">
 <img src="examples/original_colors/stylized.png" height="165px">
 <img src="examples/original_colors/stylized_original_colors.png" height="165px">
+
+<img src="examples/original_colors/garden.png" height="165px">
+<img src="examples/original_colors/garden_starry.png" height="165px">
+<img src="examples/original_colors/garden_starry_yuv.png" height="165px">
 </p>
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 
