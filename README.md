@@ -209,7 +209,7 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 </tr>
 <tr>
 <td>conv4_1</td>
-<td><img src="examples/layers/conv4_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/relu4_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e2.png" width="192"></td>
