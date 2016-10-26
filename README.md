@@ -85,12 +85,17 @@ When using multiple style images, the degree of blending between the images can 
 *Bottom row (left to right)*: .2 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .8 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .5 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .5 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .8 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .2 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html)
 
 ### Transfer style but not color
-The color scheme of the original image can be preserved by including the flag `--original_colors`.
+The color scheme of the original image can be preserved by including the flag `--original_colors`. Colors are transferred using either the [YUV](https://en.wikipedia.org/wiki/YUV), [YCrCb](https://en.wikipedia.org/wiki/YCbCr), [CIE L\*a\*b\*](https://en.wikipedia.org/wiki/Lab_color_space), or [CIE L\*u\*v\*](https://en.wikipedia.org/wiki/CIELUV) color spaces.
 
+Here we reproduce Figure 1 and Figure 2 in the third paper using luminance-only transfer:
 <p align="center">
 <img src="examples/original_colors/new_york.png" height="165px">
 <img src="examples/original_colors/stylized.png" height="165px">
 <img src="examples/original_colors/stylized_original_colors.png" height="165px">
+
+<img src="examples/original_colors/garden.png" height="165px">
+<img src="examples/original_colors/garden_starry.png" height="165px">
+<img src="examples/original_colors/garden_starry_yuv.png" height="165px">
 </p>
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 
@@ -155,7 +160,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 </p> 
 
 ### Gradient Descent Initialization
-The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--init_first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise, the content image, or the style image. For video frames, the gradient descent can also be initialized with the previous stylized frame or the previous stylized frame warped to the current frame.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
+The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise, the content image, or the style image. For video frames, the gradient descent can also be initialized with the previous stylized frame or the previous stylized frame warped to the current frame.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
@@ -271,7 +276,7 @@ python neural_style.py --video \
 * `--content_layer_weights`: *Space-separated* weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: *Space-separated* weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
-* `--color_convert_type`: Color spaces (YUV, YCrBr, CIE Luv, CIE Lab) for luminance-matching conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
+* `--color_convert_type`: Color spaces (YUV, YCrCb, CIE L\*u\*v\*, CIE L\*a\*b\*) for luminance-matching conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
 * `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
 * `--noise_ratio`: Interpolation value between the content image and noise image if network is initialized with `random`. *Default*: `1.0`
