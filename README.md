@@ -172,7 +172,7 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_random_4.png" height="192">
 </p>
 *Top row (left to right)*: Initialized with the content image, the style image, white noise (RNG seed 1)  
-*Bottom row (left to right)*: Initialized with white noise (RNG seed 2), white noise (RNG seed 3), white noise (RNG seed 4)
+*Bottom row (left to right)*: Initialized with white noise (RNG seeds 2, 3, 4)
 
 ### Layer Representations
 The feature complexities and receptive field sizes increase down the VGG-199 CNN heirarchy.  The rows in the below figure show the increasing complexity and size of local image structures as an increasing subset of CNN layers are used.  The columns show the alpha/beta ratio which is the relative weighting of the the content and style reconstruction (see Content / Style Tradeoff).
@@ -187,39 +187,39 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td>1 x 10^-2</td>
 </tr>
 <tr>
-<td>relu1_1</td>
+<td>conv1_1</td>
 <td><img src="examples/layers/relu1_1_1e5.png" width="192"></td>
-<td><img src="examples/layers/relu1_1_1e4.png" width="192"></td>
-<td><img src="examples/layers/relu1_1_1e3.png" width="192"></td>
-<td><img src="examples/layers/relu1_1_1e2.png" width="192"></td>
+<td><img src="examples/layers/conv1_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/conv1_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/conv1_1_1e2.png" width="192"></td>
 </tr>
 <tr>
-<td>relu2_1</td>
+<td>conv2_1</td>
 <td><img src="examples/layers/relu2_1_1e5.png" width="192"></td>
-<td><img src="examples/layers/relu2_1_1e4.png" width="192"></td>
-<td><img src="examples/layers/relu2_1_1e3.png" width="192"></td>
-<td><img src="examples/layers/relu2_1_1e2.png" width="192"></td>
+<td><img src="examples/layers/conv2_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/conv2_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/conv2_1_1e2.png" width="192"></td>
 </tr>
 <tr>
-<td>relu3_1</td>
+<td>conv3_1</td>
 <td><img src="examples/layers/relu3_1_1e5.png" width="192"></td>
-<td><img src="examples/layers/relu3_1_1e4.png" width="192"></td>
-<td><img src="examples/layers/relu3_1_1e3.png" width="192"></td>
-<td><img src="examples/layers/relu3_1_1e2.png" width="192"></td>
+<td><img src="examples/layers/conv3_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/conv3_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/conv3_1_1e2.png" width="192"></td>
 </tr>
 <tr>
-<td>relu4_1</td>
+<td>conv4_1</td>
 <td><img src="examples/layers/relu4_1_1e5.png" width="192"></td>
-<td><img src="examples/layers/relu4_1_1e4.png" width="192"></td>
-<td><img src="examples/layers/relu4_1_1e3.png" width="192"></td>
-<td><img src="examples/layers/relu4_1_1e2.png" width="192"></td>
+<td><img src="examples/layers/conv4_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/conv4_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/conv4_1_1e2.png" width="192"></td>
 </tr>
 <tr>
-<td>relu5_1</td>
+<td>conv5_1</td>
 <td><img src="examples/layers/relu5_1_1e5.png" width="192"></td>
-<td><img src="examples/layers/relu5_1_1e4.png" width="192"></td>
-<td><img src="examples/layers/relu5_1_1e3.png" width="192"></td>
-<td><img src="examples/layers/relu5_1_1e2.png" width="192"></td>
+<td><img src="examples/layers/conv5_1_1e4.png" width="192"></td>
+<td><img src="examples/layers/conv5_1_1e3.png" width="192"></td>
+<td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
 
