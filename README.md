@@ -85,8 +85,9 @@ When using multiple style images, the degree of blending between the images can 
 *Bottom row (left to right)*: .2 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .8 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .5 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .5 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .8 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .2 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html)
 
 ### Transfer style but not color
-The color scheme of the original image can be preserved by including the flag `--original_colors`.
+The color scheme of the original image can be preserved by including the flag `--original_colors`. Colors are transferred using either the YUV, YCrCb, CIE L\*a\*b\*, or CIE L\*u\*v\* colorspaces.
 
+Here we reproduce Figure 1 and Figure 2 in the third paper using luminance-only transfer:
 <p align="center">
 <img src="examples/original_colors/new_york.png" height="165px">
 <img src="examples/original_colors/stylized.png" height="165px">
@@ -275,7 +276,7 @@ python neural_style.py --video \
 * `--content_layer_weights`: *Space-separated* weights of each content layer to the content loss. *Default*: `1.0`
 * `--style_layer_weights`: *Space-separated* weights of each style layer to loss. *Default*: `0.2 0.2 0.2 0.2 0.2`
 * `--original_colors`: Boolean flag indicating if the style is transferred but not the colors.
-* `--color_convert_type`: Color spaces (YUV, YCrBr, CIE Luv, CIE Lab) for luminance-matching conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
+* `--color_convert_type`: Color spaces (YUV, YCrCb, CIE L\*u\*v\*, CIE L\*a\*b\*) for luminance-matching conversion to original colors. *Choices*: `yuv`, `ycrcb`, `luv`, `lab`. *Default*: `yuv`
 * `--style_mask`: Boolean flag indicating if style is transferred to masked regions.
 * `--style_mask_imgs`: Filenames of the style mask images (example: `face_mask.png`). To use multiple style mask images, pass a *space-separated* list.  *Example*: `--style_mask_imgs face_mask.png face_mask_inv.png`
 * `--noise_ratio`: Interpolation value between the content image and noise image if network is initialized with `random`. *Default*: `1.0`
