@@ -10,7 +10,7 @@ by Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman
 
 Additionally, techniques are presented for semantic segmentation and multiple style transfer.
 
-The Neural Style algorithm combines the content of one image with the style of another image using convolutional neural networks. Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
+The Neural Style algorithm combines the content of one image with the style of another image using convolutional neural networks (CNN). Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
 
 <p align="center">
 <img src="examples/lions/42_output.png" width="512"/>
@@ -188,21 +188,21 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 </tr>
 <tr>
 <td>conv1_1</td>
-<td><img src="examples/layers/relu1_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/conv1_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv1_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv1_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv1_1_1e2.png" width="192"></td>
 </tr>
 <tr>
 <td>conv2_1</td>
-<td><img src="examples/layers/relu2_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/conv2_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv2_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv2_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv2_1_1e2.png" width="192"></td>
 </tr>
 <tr>
 <td>conv3_1</td>
-<td><img src="examples/layers/relu3_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/conv3_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv3_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv3_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv3_1_1e2.png" width="192"></td>
