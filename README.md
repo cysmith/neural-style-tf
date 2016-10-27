@@ -432,3 +432,10 @@ If you find this code useful for your research, please cite:
   howpublished = {\url{https://github.com/cysmith/neural-style-tf}},
 }
 ```
+<p align="center">
+<br><i>
+If what AARON is making is not art, what is it exactly, and in what ways, other than its origin,<br> does it differ from the "real thing?" If it is not thinking, what exactly is it doing?
+<br></i>
+- Harold Cohen (on his AI painter AARON), 1995
+</p>
+
