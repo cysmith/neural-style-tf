@@ -17,7 +17,7 @@ The Neural Style algorithm combines the content of one image with the style of a
 <img src="examples/lions/content_style.png" width="290"/>
 </p>
 
-Transfering the style of various artworks to the same content image produces qualitatively convincing results:
+Transferring the style of various artworks to the same content image produces qualitatively convincing results:
 <p align="center">
 <img src="examples/lions/32_output.png" width="192">
 <img src="examples/lions/styles/matisse_crop.jpg" width="192"/>
