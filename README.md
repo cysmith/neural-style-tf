@@ -222,7 +222,7 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
-*Rows*: increasing subsets of CNN layers
+*Rows*: increasing subsets of CNN layers  
 *Columns*: relative weighting of the the content and style reconstruction (see Content / Style Tradeoff)
 
 ## Setup
