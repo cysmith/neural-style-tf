@@ -115,37 +115,37 @@ The algorithm is not constrained to artistic painting styles.  It can also be ap
 ### Segmentation
 Style can be transferred to semantic segmentations in the content image.
 <p align="center">
-<img src="examples/segmentation/00110.jpg" height="192px">
-<img src="examples/segmentation/00110_mask.png" height="192px">
-<img src="examples/segmentation/00110_output.png" height="192px">  
-<img src="examples/segmentation/00017.jpg" height="192px">
-<img src="examples/segmentation/00017_mask.png" height="192px">
-<img src="examples/segmentation/00017_output.png" height="192px">  
+<img src="examples/segmentation/00110.jpg" height="180px">
+<img src="examples/segmentation/00110_mask.png" height="180px">
+<img src="examples/segmentation/00110_output.png" height="180px">  
+<img src="examples/segmentation/00017.jpg" height="180px">
+<img src="examples/segmentation/00017_mask.png" height="180px">
+<img src="examples/segmentation/00017_output.png" height="180px">  
 
-<img src="examples/segmentation/00768.jpg" height="192px">
-<img src="examples/segmentation/00768_mask.png" height="192px">
-<img src="examples/segmentation/00768_output.png" height="192px">
-<img src="examples/segmentation/02630.png" height="192px">
-<img src="examples/segmentation/02630_mask.png" height="192px">
-<img src="examples/segmentation/02630_output.png" height="192px"> 
+<img src="examples/segmentation/00768.jpg" height="180px">
+<img src="examples/segmentation/00768_mask.png" height="180px">
+<img src="examples/segmentation/00768_output.png" height="180px">
+<img src="examples/segmentation/02630.png" height="180px">
+<img src="examples/segmentation/02630_mask.png" height="180px">
+<img src="examples/segmentation/02630_output.png" height="180px"> 
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
 
 <p align="center">
-<img src="examples/segmentation/02390.jpg" height="192px">
-<img src="examples/segmentation/basquiat.png" height="192px">
-<img src="examples/segmentation/frida.png" height="192px">
-<img src="examples/segmentation/02390_mask.png" height="192px">
-<img src="examples/segmentation/02390_mask_inv.png" height="192px">
-<img src="examples/segmentation/02390_output.png" height="192px">
+<img src="examples/segmentation/02390.jpg" height="180px">
+<img src="examples/segmentation/basquiat.png" height="180px">
+<img src="examples/segmentation/frida.png" height="180px">
+<img src="examples/segmentation/02390_mask.png" height="180px">
+<img src="examples/segmentation/02390_mask_inv.png" height="180px">
+<img src="examples/segmentation/02390_output.png" height="180px">
 
-<img src="examples/segmentation/02270.jpg" height="192px">
-<img src="examples/segmentation/okeffe_red_canna.png" height="192px">
-<img src="examples/segmentation/okeffe_iris.png" height="192px">
-<img src="examples/segmentation/02270_mask_face.png" height="192px">
-<img src="examples/segmentation/02270_mask_face_inv.png" height="192px">
-<img src="examples/segmentation/02270_output.png" height="192px">
+<img src="examples/segmentation/02270.jpg" height="180px">
+<img src="examples/segmentation/okeffe_red_canna.png" height="180px">
+<img src="examples/segmentation/okeffe_iris.png" height="180px">
+<img src="examples/segmentation/02270_mask_face.png" height="180px">
+<img src="examples/segmentation/02270_mask_face_inv.png" height="180px">
+<img src="examples/segmentation/02270_output.png" height="180px">
 </p>
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
