@@ -159,7 +159,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 </p> 
 
 ### Gradient Descent Initialization
-The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise, the content image, or the style image. For video frames, the gradient descent can also be initialized with the previous stylized frame or the previous stylized frame warped to the current frame.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
+The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
@@ -175,7 +175,7 @@ Here we reproduce Figure 6 from the first paper:
 *Bottom row (left to right)*: Initialized with white noise (RNG seeds 2, 3, 4)
 
 ### Layer Representations
-The feature complexities and receptive field sizes increase down the VGG-199 CNN heirarchy.  The rows in the below figure show the increasing complexity and size of local image structures as an increasing subset of CNN layers are used.  The columns show the alpha/beta ratio which is the relative weighting of the the content and style reconstruction (see Content / Style Tradeoff).
+The feature complexities and receptive field sizes increase down the VGG-199 CNN heirarchy.
 
 Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.06576):
 <table align='center'>
@@ -222,6 +222,8 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
+*Rows*: increasing subsets of CNN layers
+*Columns*: relative weighting of the the content and style reconstruction (see Content / Style Tradeoff)
 
 ## Setup
 #### Dependencies:
