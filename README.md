@@ -222,8 +222,8 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
-*Rows*: increasing subsets of CNN layers; i.e. 'conv4_1' means using 'conv1_1', 'conv2_1', 'conv3_1', 'conv4_1'.
-*Columns*: alpha/beta ratio of the the content and style reconstruction (see Content / Style Tradeoff)
+*Rows*: increasing subsets of CNN layers; i.e. 'conv4_1' means using 'conv1_1', 'conv2_1', 'conv3_1', 'conv4_1'.   
+*Columns*: alpha/beta ratio of the the content and style reconstruction (see Content / Style Tradeoff).
 
 ## Setup
 #### Dependencies:
