@@ -131,7 +131,6 @@ Style can be transferred to semantic segmentations in the content image.
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
-
 <p align="center">
 <img src="examples/segmentation/02390.jpg" height="180px">
 <img src="examples/segmentation/basquiat.png" height="180px">
@@ -338,7 +337,7 @@ python neural_style.py --video \
 * `--img_name`: Filename of the output image. *Default*: `result`
 * `--verbose`: Boolean flag indicating if statements should be printed to the console.
 
-"#### Optimization Arguments
+#### Optimization Arguments
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
@@ -366,7 +365,8 @@ python neural_style.py --video \
 
 ## Questions and Errata
 
-Send questions or issues: <img src="examples/equations/email.png">
+Send questions or issues:  
+<img src="examples/equations/email.png">
 
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
