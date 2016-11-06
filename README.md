@@ -17,7 +17,7 @@ The Neural Style algorithm combines the content of one image with the style of a
 <img src="examples/lions/content_style.png" width="290"/>
 </p>
 
-Transfering the style of various artworks to the same content image produces qualitatively convincing results:
+Transferring the style of various artworks to the same content image produces qualitatively convincing results:
 <p align="center">
 <img src="examples/lions/32_output.png" width="192">
 <img src="examples/lions/styles/matisse_crop.jpg" width="192"/>
@@ -115,37 +115,36 @@ The algorithm is not constrained to artistic painting styles.  It can also be ap
 ### Segmentation
 Style can be transferred to semantic segmentations in the content image.
 <p align="center">
-<img src="examples/segmentation/00110.jpg" height="192px">
-<img src="examples/segmentation/00110_mask.png" height="192px">
-<img src="examples/segmentation/00110_output.png" height="192px">  
-<img src="examples/segmentation/00017.jpg" height="192px">
-<img src="examples/segmentation/00017_mask.png" height="192px">
-<img src="examples/segmentation/00017_output.png" height="192px">  
+<img src="examples/segmentation/00110.jpg" height="180px">
+<img src="examples/segmentation/00110_mask.png" height="180px">
+<img src="examples/segmentation/00110_output.png" height="180px">  
+<img src="examples/segmentation/00017.jpg" height="180px">
+<img src="examples/segmentation/00017_mask.png" height="180px">
+<img src="examples/segmentation/00017_output.png" height="180px">  
 
-<img src="examples/segmentation/00768.jpg" height="192px">
-<img src="examples/segmentation/00768_mask.png" height="192px">
-<img src="examples/segmentation/00768_output.png" height="192px">
-<img src="examples/segmentation/02630.png" height="192px">
-<img src="examples/segmentation/02630_mask.png" height="192px">
-<img src="examples/segmentation/02630_output.png" height="192px"> 
+<img src="examples/segmentation/00768.jpg" height="180px">
+<img src="examples/segmentation/00768_mask.png" height="180px">
+<img src="examples/segmentation/00768_output.png" height="180px">
+<img src="examples/segmentation/02630.png" height="180px">
+<img src="examples/segmentation/02630_mask.png" height="180px">
+<img src="examples/segmentation/02630_output.png" height="180px"> 
 </p>
 
 Multiple styles can be transferred to the foreground and background of the content image.
-
 <p align="center">
-<img src="examples/segmentation/02390.jpg" height="192px">
-<img src="examples/segmentation/basquiat.png" height="192px">
-<img src="examples/segmentation/frida.png" height="192px">
-<img src="examples/segmentation/02390_mask.png" height="192px">
-<img src="examples/segmentation/02390_mask_inv.png" height="192px">
-<img src="examples/segmentation/02390_output.png" height="192px">
+<img src="examples/segmentation/02390.jpg" height="180px">
+<img src="examples/segmentation/basquiat.png" height="180px">
+<img src="examples/segmentation/frida.png" height="180px">
+<img src="examples/segmentation/02390_mask.png" height="180px">
+<img src="examples/segmentation/02390_mask_inv.png" height="180px">
+<img src="examples/segmentation/02390_output.png" height="180px">
 
-<img src="examples/segmentation/02270.jpg" height="192px">
-<img src="examples/segmentation/okeffe_red_canna.png" height="192px">
-<img src="examples/segmentation/okeffe_iris.png" height="192px">
-<img src="examples/segmentation/02270_mask_face.png" height="192px">
-<img src="examples/segmentation/02270_mask_face_inv.png" height="192px">
-<img src="examples/segmentation/02270_output.png" height="192px">
+<img src="examples/segmentation/02270.jpg" height="180px">
+<img src="examples/segmentation/okeffe_red_canna.png" height="180px">
+<img src="examples/segmentation/okeffe_iris.png" height="180px">
+<img src="examples/segmentation/02270_mask_face.png" height="180px">
+<img src="examples/segmentation/02270_mask_face_inv.png" height="180px">
+<img src="examples/segmentation/02270_output.png" height="180px">
 </p>
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
@@ -159,7 +158,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 </p> 
 
 ### Gradient Descent Initialization
-The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  For single images, the gradient descent can be initialized with white noise, the content image, or the style image. For video frames, the gradient descent can also be initialized with the previous stylized frame or the previous stylized frame warped to the current frame.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
+The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
 
 Here we reproduce Figure 6 from the first paper:
 <p align="center">
@@ -175,7 +174,7 @@ Here we reproduce Figure 6 from the first paper:
 *Bottom row (left to right)*: Initialized with white noise (RNG seeds 2, 3, 4)
 
 ### Layer Representations
-The feature complexities and receptive field sizes increase down the VGG-199 CNN heirarchy.  The rows in the below figure show the increasing complexity and size of local image structures as an increasing subset of CNN layers are used.  The columns show the alpha/beta ratio which is the relative weighting of the the content and style reconstruction (see Content / Style Tradeoff).
+The feature complexities and receptive field sizes increase down the CNN heirarchy.
 
 Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.06576):
 <table align='center'>
@@ -209,19 +208,21 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 </tr>
 <tr>
 <td>conv4_1</td>
-<td><img src="examples/layers/relu4_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/conv4_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv4_1_1e2.png" width="192"></td>
 </tr>
 <tr>
 <td>conv5_1</td>
-<td><img src="examples/layers/relu5_1_1e5.png" width="192"></td>
+<td><img src="examples/layers/conv5_1_1e5.png" width="192"></td>
 <td><img src="examples/layers/conv5_1_1e4.png" width="192"></td>
 <td><img src="examples/layers/conv5_1_1e3.png" width="192"></td>
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
+*Rows*: increasing subsets of CNN layers; i.e. 'conv4_1' means using 'conv1_1', 'conv2_1', 'conv3_1', 'conv4_1'.   
+*Columns*: alpha/beta ratio of the the content and style reconstruction (see Content / Style Tradeoff).
 
 ## Setup
 #### Dependencies:
@@ -364,7 +365,8 @@ python neural_style.py --video \
 
 ## Questions and Errata
 
-Send questions or issues: cysmith1010@gmail.com
+Send questions or issues:  
+<img src="examples/equations/email.png">
 
 ## Memory
 By default, `neural-style-tf` uses the NVIDIA cuDNN GPU backend for convolutions and L-BFGS for optimization.
