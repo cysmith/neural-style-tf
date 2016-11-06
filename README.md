@@ -342,7 +342,7 @@ python neural_style.py --video \
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`  
 <p align="center">
 <img src="examples/equations/plot.png" width="321px">
-</p>  
+</p>
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
 * `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
 * `--content_loss_function`: Different constants K in the content loss function. *Choices*: `1`, `2`, `3`. *Default*: `1`
