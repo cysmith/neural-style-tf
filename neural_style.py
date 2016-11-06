@@ -137,7 +137,7 @@ def parse_args():
     help='Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. (default|recommended: %(default)s)')
   
   parser.add_argument('--learning_rate', type=float, 
-    default=1e1, 
+    default=1e0, 
     help='Learning rate parameter for the Adam optimizer. (default: %(default)s)')
   
   parser.add_argument('--max_iterations', type=int, 
