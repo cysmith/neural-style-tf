@@ -339,7 +339,7 @@ python neural_style.py --video \
 
 #### Optimization Arguments
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
-* `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e1`  
+* `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e0`  
 <p align="center">
 <img src="examples/equations/plot.png" width="321px">
 </p>
