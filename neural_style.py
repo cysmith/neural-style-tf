@@ -81,7 +81,7 @@ def parse_args():
     default=['relu1_1', 'relu2_1', 'relu3_1', 'relu4_1', 'relu5_1'],
     help='VGG19 layers used for the style image. (default: %(default)s)')
   
-  parser.add_argument('--content_layer_weights', type=float, 
+  parser.add_argument('--content_layer_weights', nargs='+', type=float, 
     default=[1.0], 
     help='Contributions (weights) of each content layer to loss. (default: %(default)s)')
   
