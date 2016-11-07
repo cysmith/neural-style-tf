@@ -81,8 +81,7 @@ def parse_args():
     default=['relu1_1', 'relu2_1', 'relu3_1', 'relu4_1', 'relu5_1'],
     help='VGG19 layers used for the style image. (default: %(default)s)')
   
-  parser.add_argument('--content_layer_weights', nargs='+', 
-    type=float, 
+  parser.add_argument('--content_layer_weights', nargs='+', type=float, 
     default=[1.0], 
     help='Contributions (weights) of each content layer to loss. (default: %(default)s)')
   
@@ -143,7 +142,7 @@ def parse_args():
     help='Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. (default|recommended: %(default)s)')
   
   parser.add_argument('--learning_rate', type=float, 
-    default=1e1, 
+    default=1e0, 
     help='Learning rate parameter for the Adam optimizer. (default: %(default)s)')
   
   parser.add_argument('--max_iterations', type=int, 
