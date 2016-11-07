@@ -341,7 +341,7 @@ python neural_style.py --video \
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e0`  
 <p align="center">
-<img src="examples/equations/plot.png" width="420px">
+<img src="examples/equations/plot.png" width="360px">
 </p>
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
 * `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
