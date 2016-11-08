@@ -157,7 +157,9 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 <br>
 <img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
-</p> 
+</p>  
+*Top row (left to right)*: source frames, ground truth optical flow   
+*Bottom row (left to right)*: disoccluded regions and motion boundaries, stylized frames
 
 ### Gradient Descent Initialization
 The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
