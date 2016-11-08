@@ -158,7 +158,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 <img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
 </p>  
-*Top row (left to right)*: source frames, ground-truth optical flow   
+*Top row (left to right)*: source frames, ground-truth optical flow visualized      
 *Bottom row (left to right)*: disoccluded regions and motion boundaries, stylized frames
 
 ### Gradient Descent Initialization
