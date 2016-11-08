@@ -792,8 +792,6 @@ def get_content_weights(frame, prev_frame):
   backward_path = os.path.join(args.video_input_dir, backward_fn)
   forward_weights = read_weights_file(forward_path)
   backward_weights = read_weights_file(backward_path)
-  forward_weights = np.clip(forward_weights, 0, 255).astype('uint8')
-  backward_weights = np.clip(backward_weights, 0, 255).astype('uint8')
   return forward_weights #, backward_weights
 
 def warp_image(src, flow):
