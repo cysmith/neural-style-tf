@@ -153,7 +153,9 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 
 <p align="center">
 <img src="examples/video/input.gif">
-
+<img src="examples/video/opt_flow.gif">
+<br>
+<img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
 </p> 
 
