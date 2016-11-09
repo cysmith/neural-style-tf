@@ -551,7 +551,7 @@ def normalize(weights):
   denom = sum(weights)
   if denom > 0.:
     return [float(i) / denom for i in weights]
-  else: return [0.]
+  else: return [0. for _ in weights]
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
