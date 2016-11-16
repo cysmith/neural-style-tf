@@ -479,9 +479,9 @@ def sum_total_variation_losses(sess, net, input_img):
   x = net['input']
   tv_y_size = b * (h-1) * w * d
   tv_x_size = b * h * (w-1) * d
-  loss_y = tf.nn.l2_loss(x[:,1:,:,:] - x[:,:h-1,:,:]) 
+  loss_y = tf.nn.l2_loss(x[:,1:,:,:] - x[:,:-1,:,:]) 
   loss_y /= tv_y_size
-  loss_x = tf.nn.l2_loss(x[:,:,1:,:] - x[:,:,:w-1,:]) 
+  loss_x = tf.nn.l2_loss(x[:,:,1:,:] - x[:,:,:-1,:]) 
   loss_x /= tv_x_size
   loss = 2 * (loss_y + loss_x)
   loss = tf.cast(loss, tf.float32)
