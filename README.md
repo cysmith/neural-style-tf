@@ -418,6 +418,8 @@ Artistic images were created by the modern artists:
 * [Françoise Nielly](http://www.francoise-nielly.com/)
 * [James Jean](http://www.jamesjean.com/)
 * [Ben Giles](https://benlewisgiles.format.com/)
+* [Callie Fink](http://calliefink.deviantart.com/)
+* [H.R. Giger](https://en.wikipedia.org/wiki/H._R._Giger)
 * [Voka](http://www.voka.at/)
 
 Artistic images were created by the popular historical artists:
