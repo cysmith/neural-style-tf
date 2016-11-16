@@ -551,7 +551,7 @@ def normalize(weights):
   denom = sum(weights)
   if denom > 0.:
     return [float(i) / denom for i in weights]
-  else: return [0.]
+  else: return [0. for _ in weights]
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
@@ -792,8 +792,6 @@ def get_content_weights(frame, prev_frame):
   backward_path = os.path.join(args.video_input_dir, backward_fn)
   forward_weights = read_weights_file(forward_path)
   backward_weights = read_weights_file(backward_path)
-  forward_weights = np.clip(forward_weights, 0, 255).astype('uint8')
-  backward_weights = np.clip(backward_weights, 0, 255).astype('uint8')
   return forward_weights #, backward_weights
 
 def warp_image(src, flow):

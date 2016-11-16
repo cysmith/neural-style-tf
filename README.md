@@ -30,7 +30,7 @@ Transferring the style of various artworks to the same content image produces qu
 <img src="examples/lions/styles/basquiat_crop.jpg" width="192"/>
 </p>
 
-Here we reproduce Figure 3 from the first paper, which renders a photograph of the Neckar river in Tübingen, Germany in the style of 5 different iconic paintings [The Shipwreck of the Minotaur](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck_of_the_minotaur), [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp):
+Here we reproduce Figure 3 from the first paper, which renders a photograph of the Neckarfront in Tübingen, Germany in the style of 5 different iconic paintings [The Shipwreck of the Minotaur](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck_of_the_minotaur), [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp):
 <p align="center">
 <img src="examples/gatys_figure/tubingen.png" height="192px">
 <img src="examples/gatys_figure/tubingen_shipwreck.png" height="192px">
@@ -153,9 +153,13 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 
 <p align="center">
 <img src="examples/video/input.gif">
-
+<img src="examples/video/opt_flow.gif">
+<br>
+<img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
-</p> 
+</p>  
+*Top row (left to right)*: source frames, ground-truth optical flow visualized      
+*Bottom row (left to right)*: disoccluded regions and motion boundaries, stylized frames
 
 ### Gradient Descent Initialization
 The initialization of the gradient descent is controlled using `--init_img_type` for single images and `--init_frame_type` or `--first_frame_type` for video frames.  White noise allows an arbitrary number of distinct images to be generated.  Whereas, initializing with a fixed image always converges to the same output.
