@@ -551,7 +551,7 @@ def normalize(weights):
   denom = sum(weights)
   if denom > 0.:
     return [float(i) / denom for i in weights]
-  else: return [0. for _ in weights]
+  else: return [0.] * len(weights)
 
 def maybe_make_directory(dir_path):
   if not os.path.exists(dir_path):  
@@ -568,29 +568,30 @@ def stylize(content_img, style_imgs, init_img, frame=None):
   with tf.device(args.device), tf.Session() as sess:
     # setup network
     net = build_vgg19(content_img)
-
+    
     # style loss
     if args.style_mask:
       L_style = sum_masked_style_losses(sess, net, style_imgs)
     else:
       L_style = sum_style_losses(sess, net, style_imgs)
-
+    
     # content loss
     L_content = sum_content_losses(sess, net, content_img)
-
+    
     # denoising loss
     L_tv = sum_total_variation_losses(sess, net, init_img)
-
+    
     # loss weights
     alpha = args.content_weight
     beta  = args.style_weight
-    theta = args.tv_weight    
+    theta = args.tv_weight
     
     # total loss
     L_total  = alpha * L_content
     L_total += beta  * L_style
     L_total += theta * L_tv
-
+    
+    # video temporal loss
     if args.video and frame > 1:
       gamma      = args.temporal_weight
       L_temporal = sum_shortterm_temporal_losses(sess, net, frame, init_img)
