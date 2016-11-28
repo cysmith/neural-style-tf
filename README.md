@@ -410,9 +410,6 @@ The implementation is based on the projects:
 Source video frames were obtained from:
 * [MPI Sintel Flow Dataset](http://sintel.is.tue.mpg.de/)
 
-Souce images and corresponding segmentation masks were obtained from:
-* [Automatic Portrait Segmentation for Image Stylization](http://xiaoyongshen.me/webpage_portrait/index.html)
-
 Artistic images were created by the modern artists:
 * [Alex Grey](http://alexgrey.com/)
 * [Minjae Lee](http://www.grenomj.com/)
