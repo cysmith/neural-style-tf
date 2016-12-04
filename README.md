@@ -153,8 +153,6 @@ Multiple styles can be transferred to the foreground and background of the conte
 </p>
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
-*Note*: The masking is done during synthesis; not as a post-processing step.
-
 ### Video
 Animations can be rendered by applying the algorithm to each source frame.  For the best results, the gradient descent is initialized with the previously stylized frame warped to the current frame according to the optical flow between the pair of frames.  Loss functions for temporal consistency are used to penalize pixels excluding disoccluded regions and motion boundaries.
 
