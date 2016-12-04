@@ -535,14 +535,14 @@ def read_flow_file(path):
 
 def read_weights_file(path):
   lines = open(path).readlines()
-  header = map(int, lines[0].split(' '))
+  header = list(map(int, lines[0].split(' ')))
   w = header[0]
   h = header[1]
   vals = np.zeros((h, w), dtype=np.float32)
   for i in range(1, len(lines)):
     line = lines[i].rstrip().split(' ')
-    vals[i-1] = np.array(map(np.float32, line))
-    vals[i-1] = map(lambda x: 0. if x < 255. else 1., vals[i-1])
+    vals[i-1] = np.array(list(map(np.float32, line)))
+    vals[i-1] = list(map(lambda x: 0. if x < 255. else 1., vals[i-1]))
   # expand to 3 channels
   weights = np.dstack([vals.astype(np.float32)] * 3)
   return weights
