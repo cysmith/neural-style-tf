@@ -39,7 +39,7 @@ Here we reproduce Figure 3 from the first paper, which renders a photograph of t
 <p align="center">
 <img src="examples/gatys_figure/tubingen.png" height="192px">
 <img src="examples/gatys_figure/tubingen_shipwreck.png" height="192px">
-<img src="examples/gatys_figure/tubingen_starry_night.png" height="192px">
+<img src="examples/initialization/init_style.png" height="192px">
 
 <img src="examples/gatys_figure/tubingen_picasso.png" height="192px">
 <img src="examples/gatys_figure/tubingen_scream.png" height="192px">
