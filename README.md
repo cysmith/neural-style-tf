@@ -10,7 +10,7 @@ by Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman
 
 Additionally, techniques are presented for semantic segmentation and multiple style transfer.
 
-The Neural Style algorithm combines the content of one image with the style of another image using convolutional neural networks (CNN). Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
+The Neural Style algorithm synthesizes a [pastiche](https://en.wikipedia.org/wiki/Pastiche) by separating and combining the content of one image with the style of another image using convolutional neural networks (CNN). Below is an example of transferring the artistic style of [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night) onto a photograph of an African lion:
 
 <p align="center">
 <img src="examples/lions/42_output.png" width="512"/>
@@ -39,7 +39,7 @@ Here we reproduce Figure 3 from the first paper, which renders a photograph of t
 <p align="center">
 <img src="examples/gatys_figure/tubingen.png" height="192px">
 <img src="examples/gatys_figure/tubingen_shipwreck.png" height="192px">
-<img src="examples/gatys_figure/tubingen_starry_night.png" height="192px">
+<img src="examples/initialization/init_style.png" height="192px">
 
 <img src="examples/gatys_figure/tubingen_picasso.png" height="192px">
 <img src="examples/gatys_figure/tubingen_scream.png" height="192px">
@@ -154,7 +154,7 @@ Multiple styles can be transferred to the foreground and background of the conte
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
 ### Video
-Animations can be rendered by applying the algorithm to each source frame.  For the best results, the network is initialized with the previously stylized frame warped to the current frame according to the optical flow between the pair of frames.  Loss functions for temporal consistency are used to penalize pixels excluding disoccluded regions and motion boundaries.
+Animations can be rendered by applying the algorithm to each source frame.  For the best results, the gradient descent is initialized with the previously stylized frame warped to the current frame according to the optical flow between the pair of frames.  Loss functions for temporal consistency are used to penalize pixels excluding disoccluded regions and motion boundaries.
 
 <p align="center">
 <img src="examples/video/input.gif">
@@ -342,7 +342,7 @@ python neural_style.py --video \
 * `--model_weights`: Weights and biases of the VGG-19 network.  Download [here](http://www.vlfeat.org/matconvnet/pretrained/). *Default*:`imagenet-vgg-verydeep-19.mat`
 * `--pooling_type`: Type of pooling in convolutional neural network. *Choices*: `avg`, `max`. *Default*: `avg`
 * `--device`: GPU or CPU device.  GPU mode highly recommended but requires NVIDIA CUDA. *Choices*: `/gpu:0` `/cpu:0`. *Default*: `/gpu:0`
-* `--image_output_dir`: Directory to write output to.  *Default*: `./image_output`
+* `--img_output_dir`: Directory to write output to.  *Default*: `./image_output`
 * `--img_name`: Filename of the output image. *Default*: `result`
 * `--verbose`: Boolean flag indicating if statements should be printed to the console.
 
@@ -407,9 +407,6 @@ The implementation is based on the projects:
 
 Source video frames were obtained from:
 * [MPI Sintel Flow Dataset](http://sintel.is.tue.mpg.de/)
-
-Souce images and corresponding segmentation masks were obtained from:
-* [Automatic Portrait Segmentation for Image Stylization](http://xiaoyongshen.me/webpage_portrait/index.html)
 
 Artistic images were created by the modern artists:
 * [Alex Grey](http://alexgrey.com/)
