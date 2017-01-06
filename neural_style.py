@@ -380,8 +380,8 @@ def mask_style_layer(a, x, mask_img):
   tensors = []
   for _ in range(d.value): 
     tensors.append(mask)
-  mask = tf.pack(tensors, axis=2)
-  mask = tf.pack(mask, axis=0)
+  mask = tf.stack(tensors, axis=2)
+  mask = tf.stack(mask, axis=0)
   mask = tf.expand_dims(mask, 0)
   a = tf.mul(a, mask)
   x = tf.mul(x, mask)
