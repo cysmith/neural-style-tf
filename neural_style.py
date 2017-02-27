@@ -228,7 +228,6 @@ def parse_args():
 
 '''
   pre-trained vgg19 convolutional neural network
-
   remark: layers are manually initialized for clarity.
 '''
 vgg19_mean = np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
@@ -471,7 +470,6 @@ def sum_shortterm_temporal_losses(sess, net, frame, input_img):
 
 '''
   denoising loss function
-
   remark: not sure this does anything significant.
 '''
 def sum_total_variation_losses(sess, net, input_img):
