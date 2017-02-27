@@ -382,8 +382,8 @@ def mask_style_layer(a, x, mask_img):
   mask = tf.stack(tensors, axis=2)
   mask = tf.stack(mask, axis=0)
   mask = tf.expand_dims(mask, 0)
-  a = tf.mul(a, mask)
-  x = tf.mul(x, mask)
+  a = tf.multiply(a, mask)
+  x = tf.multiply(x, mask)
   return a, x
 
 def sum_masked_style_losses(sess, net, style_imgs):
