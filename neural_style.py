@@ -617,7 +617,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
 
 def minimize_with_lbfgs(sess, net, optimizer, init_img):
   if args.verbose: print('\nMINIMIZING LOSS USING: L-BFGS OPTIMIZER')
-  init_op = tf.initialize_all_variables()
+  init_op = tf.global_variables_initializer()
   sess.run(init_op)
   sess.run(net['input'].assign(init_img))
   optimizer.minimize(sess)
@@ -625,7 +625,7 @@ def minimize_with_lbfgs(sess, net, optimizer, init_img):
 def minimize_with_adam(sess, net, optimizer, init_img, loss):
   if args.verbose: print('\nMINIMIZING LOSS USING: ADAM OPTIMIZER')
   train_op = optimizer.minimize(loss)
-  init_op = tf.initialize_all_variables()
+  init_op = tf.global_variables_initializer()
   sess.run(init_op)
   sess.run(net['input'].assign(init_img))
   iterations = 0
