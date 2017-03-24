@@ -103,6 +103,7 @@ Here we reproduce Figure 1 and Figure 2 in the third paper using luminance-only 
 <img src="examples/original_colors/garden_starry.png" height="165px">
 <img src="examples/original_colors/garden_starry_yuv.png" height="165px">
 </p>
+
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 
 ### Textures
@@ -153,6 +154,7 @@ Multiple styles can be transferred to the foreground and background of the conte
 <img src="examples/segmentation/02270_mask_face_inv.png" height="180px">
 <img src="examples/segmentation/02270_output.png" height="180px">
 </p>
+
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
 ### Video
@@ -165,6 +167,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 <img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
 </p>  
+
 *Top row (left to right)*: source frames, ground-truth optical flow visualized      
 *Bottom row (left to right)*: disoccluded regions and motion boundaries, stylized frames
 
@@ -181,6 +184,7 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_random_3.png" height="192">
 <img src="examples/initialization/init_random_4.png" height="192">
 </p>
+
 *Top row (left to right)*: Initialized with the content image, the style image, white noise (RNG seed 1)  
 *Bottom row (left to right)*: Initialized with white noise (RNG seeds 2, 3, 4)
 
@@ -232,6 +236,7 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
+
 *Rows*: increasing subsets of CNN layers; i.e. 'conv4_1' means using 'conv1_1', 'conv2_1', 'conv3_1', 'conv4_1'.   
 *Columns*: alpha/beta ratio of the the content and style reconstruction (see Content / Style Tradeoff).
 
