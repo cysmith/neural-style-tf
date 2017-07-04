@@ -70,6 +70,7 @@ More than one style image can be used to blend multiple artistic styles.
 <img src="examples/multiple_styles/tubingen_afremov_grey.png" height="192px">
 <img src="examples/multiple_styles/tubingen_basquiat_nielly.png" height="192px">
 </p>
+
 *Top row (left to right)*: [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913), [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [Composition VII](https://www.wikiart.org/en/wassily-kandinsky/composition-vii-1913)  
 *Bottom row (left to right)*: [Seated Nude](http://www.pablopicasso.org/seated-nude.jsp) + [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889), [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), [David Bowie](http://www.francoise-nielly.com/index.php/galerie/index/56) + [Skull](https://www.wikiart.org/en/jean-michel-basquiat/head) 
 
@@ -85,6 +86,7 @@ When using multiple style images, the degree of blending between the images can 
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_5_5.png" height="178px">
 <img src="examples/style_interpolation/taj_mahal_afremov_grey_2_8.png" height="178px">
 </p>
+
 *Top row (left to right)*: content image, .2 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .8 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893), .8 [The Starry Night](https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889) + .2 [The Scream](https://www.wikiart.org/en/edvard-munch/the-scream-1893)  
 *Bottom row (left to right)*: .2 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .8 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .5 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .5 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html), .8 [Oversoul](http://alexgrey.com/art/paintings/soul/oversoul/) + .2 [Freshness of Cold](https://afremov.com/FRESHNESS-OF-COLD-PALETTE-KNIFE-Oil-Painting-On-Canvas-By-Leonid-Afremov-Size-30-x40.html)
 
@@ -101,6 +103,7 @@ Here we reproduce Figure 1 and Figure 2 in the third paper using luminance-only 
 <img src="examples/original_colors/garden_starry.png" height="165px">
 <img src="examples/original_colors/garden_starry_yuv.png" height="165px">
 </p>
+
 *Left to right*: content image, stylized image, stylized image with the original colors of the content image
 
 ### Textures
@@ -151,6 +154,7 @@ Multiple styles can be transferred to the foreground and background of the conte
 <img src="examples/segmentation/02270_mask_face_inv.png" height="180px">
 <img src="examples/segmentation/02270_output.png" height="180px">
 </p>
+
 *Left to right*: content image, foreground style, background style, foreground mask, background mask, stylized image
 
 ### Video
@@ -163,6 +167,7 @@ Animations can be rendered by applying the algorithm to each source frame.  For 
 <img src="examples/video/weights.gif">
 <img src="examples/video/output.gif">
 </p>  
+
 *Top row (left to right)*: source frames, ground-truth optical flow visualized      
 *Bottom row (left to right)*: disoccluded regions and motion boundaries, stylized frames
 
@@ -179,6 +184,7 @@ Here we reproduce Figure 6 from the first paper:
 <img src="examples/initialization/init_random_3.png" height="192">
 <img src="examples/initialization/init_random_4.png" height="192">
 </p>
+
 *Top row (left to right)*: Initialized with the content image, the style image, white noise (RNG seed 1)  
 *Bottom row (left to right)*: Initialized with white noise (RNG seeds 2, 3, 4)
 
@@ -230,6 +236,7 @@ Here we reproduce Figure 3 from [the original paper](https://arxiv.org/abs/1508.
 <td><img src="examples/layers/conv5_1_1e2.png" width="192"></td>
 </tr>
 </table>
+
 *Rows*: increasing subsets of CNN layers; i.e. 'conv4_1' means using 'conv1_1', 'conv2_1', 'conv3_1', 'conv4_1'.   
 *Columns*: alpha/beta ratio of the the content and style reconstruction (see Content / Style Tradeoff).
 
@@ -349,12 +356,15 @@ python neural_style.py --video \
 #### Optimization Arguments
 * `--optimizer`: Loss minimization optimizer.  L-BFGS gives better results.  Adam uses less memory. *Choices*: `lbfgs`, `adam`. *Default*: `lbfgs`
 * `--learning_rate`: Learning-rate parameter for the Adam optimizer. *Default*: `1e0`  
+
 <p align="center">
 <img src="examples/equations/plot.png" width="360px">
 </p>
+
 * `--max_iterations`: Max number of iterations for the Adam or L-BFGS optimizer. *Default*: `1000`
 * `--print_iterations`: Number of iterations between optimizer print statements. *Default*: `50`
-* `--content_loss_function`: Different constants K in the content loss function. *Choices*: `1`, `2`, `3`. *Default*: `1`
+* `--content_loss_function`: Different constants K in the content loss function. *Choices*: `1`, `2`, `3`. *Default*: `1` 
+
 <p align="center">
 <img src="examples/equations/content.png" width="321px">
 </p>
