@@ -869,4 +869,4 @@ def main():
   else: render_single_image()
 
 if __name__ == '__main__':
-main()
+  main()
