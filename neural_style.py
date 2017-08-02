@@ -468,22 +468,6 @@ def sum_shortterm_temporal_losses(sess, net, frame, input_img):
   return loss
 
 '''
-  denoising loss function
-'''
-def sum_total_variation_losses(sess, net, input_img):
-  b, h, w, d = input_img.shape
-  x = net['input']
-  tv_y_size = b * (h-1) * w * d
-  tv_x_size = b * h * (w-1) * d
-  loss_y = tf.nn.l2_loss(x[:,1:,:,:] - x[:,:-1,:,:]) 
-  loss_y /= tv_y_size
-  loss_x = tf.nn.l2_loss(x[:,:,1:,:] - x[:,:,:-1,:]) 
-  loss_x /= tv_x_size
-  loss = 2 * (loss_y + loss_x)
-  loss = tf.cast(loss, tf.float32)
-  return loss
-
-'''
   utilities and i/o
 '''
 def read_image(path):
@@ -575,7 +559,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     L_content = sum_content_losses(sess, net, content_img)
     
     # denoising loss
-    L_tv = sum_total_variation_losses(sess, net, init_img)
+    L_tv = tf.image.total_variation(net['input'])
     
     # loss weights
     alpha = args.content_weight
