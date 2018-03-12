@@ -13,7 +13,7 @@ import os
 '''
 def parse_args():
 
-  desc = "TensorFlow implementation of 'A Neural Algorithm for Artisitc Style'"  
+  desc = "TensorFlow implementation of 'A Neural Algorithm for Artistic Style'"  
   parser = argparse.ArgumentParser(description=desc)
 
   # options for single image
