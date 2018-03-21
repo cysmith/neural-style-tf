@@ -613,7 +613,7 @@ def minimize_with_adam(sess, net, optimizer, init_img, loss):
     sess.run(train_op)
     if iterations % args.print_iterations == 0 and args.verbose:
       curr_loss = loss.eval()
-      print("At iterate {}\tf=  {:.5E}".format(iterations, curr_loss))
+      print("At iterate {}\tf=  {}".format(iterations, curr_loss))
     iterations += 1
 
 def get_optimizer(loss):
