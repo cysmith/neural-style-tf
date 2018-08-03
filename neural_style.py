@@ -483,21 +483,23 @@ def write_image(path, img):
   cv2.imwrite(path, img)
 
 def preprocess(img):
+  imgpre = np.copy(img)
   # bgr to rgb
-  img = img[...,::-1]
+  imgpre = imgpre[...,::-1]
   # shape (h, w, d) to (1, h, w, d)
-  img = img[np.newaxis,:,:,:]
-  img -= np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
-  return img
+  imgpre = imgpre[np.newaxis,:,:,:]
+  imgpre -= np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
+  return imgpre
 
 def postprocess(img):
-  img += np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
+  imgpost = np.copy(img)
+  imgpost += np.array([123.68, 116.779, 103.939]).reshape((1,1,1,3))
   # shape (1, h, w, d) to (h, w, d)
-  img = img[0]
-  img = np.clip(img, 0, 255).astype('uint8')
+  imgpost = imgpost[0]
+  imgpost = np.clip(imgpost, 0, 255).astype('uint8')
   # rgb to bgr
-  img = img[...,::-1]
-  return img
+  imgpost = imgpost[...,::-1]
+  return imgpost
 
 def read_flow_file(path):
   with open(path, 'rb') as f:
